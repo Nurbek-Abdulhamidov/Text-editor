@@ -10,7 +10,7 @@ import { Pagination } from "antd";
 const pageSize = 8;
 const Table = ({ param, confirm }) => {
   const [data, setData] = useState([]);
-  const [totalPage, setTotalPage] = useState(0);
+  const [setTotalPage] = useState(0);
   const [current, setCurrent] = useState(1);
   const [minIndex, setMinIndex] = useState(0);
   const [maxIndex, setMaxIndex] = useState();
