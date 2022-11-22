@@ -20,7 +20,7 @@ const SecondPage = () => {
   return (
     <div>
       {secondData
-        .filter((e) => e.id == +id.replace(":", ""))
+        .filter((e) => e.id === +id.replace(":", ""))
         .map((value, index) => {
           return (
             <Wrapper key={index}>

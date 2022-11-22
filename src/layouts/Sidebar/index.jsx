@@ -1,6 +1,6 @@
-import { Button } from "antd";
 import React from "react";
 import { Outlet, useNavigate } from "react-router-dom";
+import Button from "../../components/Generic/Button";
 import { navbar } from "../../utils/navbar";
 import {
   Aside,
@@ -26,11 +26,13 @@ const Sidebar = () => {
               </Logo>
             </Section>
             <Section space>
-              {navbar.map(({ path, title, hidden }, index) => {
+              {navbar.map(({ path, title, hidden, isAct }, index) => {
                 return (
                   !hidden && (
                     <Link
-                      className={({ isActive }) => isActive && "active"}
+                      className={({ isActive }) =>
+                        isAct ? isActive && "active" : isActive && "notActive"
+                      }
                       key={index}
                       to={path}
                     >

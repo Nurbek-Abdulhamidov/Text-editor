@@ -8,15 +8,17 @@ export const TableDiv = styled.table`
 `;
 
 export const Thead = styled.thead`
-  background-color: #1890ff;
+  background-color: #0061df;
   color: #fff;
-  padding: 5px;
+  height: 44px;
 `;
 
 export const Tbody = styled.tbody``;
 
 export const Trow = styled.tr`
   cursor: pointer;
+  height: 44px;
+
   :hover {
     transition: all 0.3s ease;
     background-color: ${({ hover }) => (hover ? "#c6c6c6" : "")};
@@ -24,7 +26,7 @@ export const Trow = styled.tr`
 `;
 
 export const Td = styled.td`
-  padding: 8px 10px;
+  padding: 5px 10px;
 `;
 
 export const BtnWrap = styled.div`

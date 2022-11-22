@@ -1,10 +1,11 @@
 import React from "react";
 import { Select } from "antd";
+import { Wrapper } from "./style";
 const handleChange = (value) => {
   console.log(`selected ${value}`);
 };
-const Selection = ({mr}) => (
-  <>
+const Selection = ({ mr }) => (
+  <Wrapper>
     <Select
       defaultValue="등록일 순"
       style={{
@@ -27,6 +28,6 @@ const Selection = ({mr}) => (
         },
       ]}
     />
-  </>
+  </Wrapper>
 );
 export default Selection;

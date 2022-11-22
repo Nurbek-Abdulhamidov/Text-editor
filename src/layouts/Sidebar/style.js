@@ -28,11 +28,20 @@ export const Section = styled.section`
   display: flex;
   flex-direction: column;
   cursor: ${({ logo }) => (logo ? "pointer" : "")};
-  margin-top: ${({ space }) => (space ? "50px" : "")};
+  margin-top: ${({ space }) => (space ? "20px" : "")};
 
   .active {
     transition: all 0.3s ease;
-    background-color: #1890ff;
+    background-color: #0061df;
+  }
+
+  .notActive {
+    transition: all 0.3s ease;
+    background-color: red;
+  }
+
+  .active:hover {
+    background-color: #0061df;
   }
 `;
 
@@ -48,7 +57,7 @@ export const Link = styled(NavLink)`
   color: #fff;
   font-size: 18px;
   padding: 8px;
-  border-radius: 12px;
+  border-radius: 5px;
   margin: 2px 0;
 
   :hover {

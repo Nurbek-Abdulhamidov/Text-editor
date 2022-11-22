@@ -1,15 +1,31 @@
-import { Button } from "antd";
 import React from "react";
-import { ButtonDiv } from "./style";
+import { Container } from "./style";
 
-const GenericButton = ({ onClick, type, children }) => {
+export const Button = ({
+  children,
+  onClick,
+  height,
+  width,
+  type,
+  mr,
+  ml,
+  mb,
+  mt,
+}) => {
   return (
-    <ButtonDiv>
-      <Button onClick={onClick} type={type}>
-        {children}
-      </Button>
-    </ButtonDiv>
+    <Container
+      mr={mr}
+      ml={ml}
+      mb={mb}
+      mt={mt}
+      type={type}
+      width={width}
+      height={height}
+      onClick={onClick}
+    >
+      {children}
+    </Container>
   );
 };
 
-export default GenericButton;
+export default Button;

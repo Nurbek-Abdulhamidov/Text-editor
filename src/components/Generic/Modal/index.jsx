@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Button, Modal } from "antd";
+import { Modal } from "antd";
 import { Container, ModalWrap } from "./style";
 import Input from "../Input";
+import Button from "../Button";
 
 export const LocalizedModal = ({ title }) => {
   const [open, setOpen] = useState(false);
@@ -13,7 +14,7 @@ export const LocalizedModal = ({ title }) => {
   };
   return (
     <Container>
-      <Button type="primary" onClick={showModal}>
+      <Button width={"100px"} type="outlined" onClick={showModal}>
         {title}
       </Button>
       <Modal
@@ -23,7 +24,7 @@ export const LocalizedModal = ({ title }) => {
         okText="예"
         cancelText="아니요"
         cancelButtonProps={
-          title == "검색"
+          title === "검색"
             ? {
                 style: {
                   display: "none",
@@ -43,7 +44,7 @@ export const LocalizedModal = ({ title }) => {
         }}
       >
         <ModalWrap>
-          {title == "검색" ? (
+          {title === "검색" ? (
             <form action="">
               <label>ID</label>
               <Input placeholder="id" />

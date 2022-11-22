@@ -13,9 +13,7 @@ export const Left = styled.div`
 export const Right = styled.div`
   flex: 1;
   input {
-    max-width: 300px;
     width: 100%;
-    height: 35px;
   }
   display: flex;
   justify-content: right;

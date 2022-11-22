@@ -1,4 +1,5 @@
 import React, { Suspense, lazy } from "react";
+import Loading from "../components/Generic/Loading";
 import useId from "../hooks/useId";
 
 const First = lazy(() => import("../pages/First"));
@@ -20,7 +21,7 @@ export const navbar = [
   {
     id: useId,
     element: (
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loading />}>
         <First />
       </Suspense>
     ),
@@ -32,7 +33,7 @@ export const navbar = [
   {
     id: useId,
     element: (
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loading />}>
         <Second />
       </Suspense>
     ),
@@ -44,7 +45,7 @@ export const navbar = [
   {
     id: useId,
     element: (
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loading />}>
         <SecondPage />
       </Suspense>
     ),
@@ -56,7 +57,7 @@ export const navbar = [
   {
     id: useId,
     element: (
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loading />}>
         <Third />
       </Suspense>
     ),
@@ -68,7 +69,7 @@ export const navbar = [
   {
     id: useId,
     element: (
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loading />}>
         <ThirdPage />
       </Suspense>
     ),
@@ -80,7 +81,7 @@ export const navbar = [
   {
     id: useId,
     element: (
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loading />}>
         <Fourth />
       </Suspense>
     ),
@@ -92,7 +93,7 @@ export const navbar = [
   {
     id: useId,
     element: (
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loading />}>
         <FourthPage />
       </Suspense>
     ),
@@ -104,7 +105,7 @@ export const navbar = [
   {
     id: useId,
     element: (
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loading />}>
         <Fifth />
       </Suspense>
     ),
@@ -113,10 +114,11 @@ export const navbar = [
     private: false,
     hidden: false,
   },
+
   {
     id: useId,
     element: (
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loading />}>
         <FifthPage />
       </Suspense>
     ),
@@ -125,22 +127,11 @@ export const navbar = [
     private: false,
     hidden: true,
   },
+  { id: useId, text: "hye", isAct: true, hidden: false },
   {
     id: useId,
     element: (
-      <Suspense fallback={<h1>Loading...</h1>}>
-        <Sixth />
-      </Suspense>
-    ),
-    title: "플랫폼 관리",
-    path: "/sixth",
-    private: false,
-    hidden: false,
-  },
-  {
-    id: useId,
-    element: (
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loading />}>
         <Seventh />
       </Suspense>
     ),
@@ -152,7 +143,7 @@ export const navbar = [
   {
     id: useId,
     element: (
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loading />}>
         <Eighth />
       </Suspense>
     ),
@@ -164,7 +155,7 @@ export const navbar = [
   {
     id: useId,
     element: (
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loading />}>
         <Nineth />
       </Suspense>
     ),
@@ -176,7 +167,7 @@ export const navbar = [
   {
     id: useId,
     element: (
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loading />}>
         <Tenth />
       </Suspense>
     ),
