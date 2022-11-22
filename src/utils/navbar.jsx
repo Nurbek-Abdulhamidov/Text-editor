@@ -11,7 +11,6 @@ const Fourth = lazy(() => import("../pages/Fourth"));
 const FourthPage = lazy(() => import("../pages/FourthPage"));
 const Fifth = lazy(() => import("../pages/Fifth"));
 const FifthPage = lazy(() => import("../pages/FifthPage"));
-const Sixth = lazy(() => import("../pages/Six"));
 const Seventh = lazy(() => import("../pages/Seven"));
 const Eighth = lazy(() => import("../pages/Eighth"));
 const Nineth = lazy(() => import("../pages/Nineth"));

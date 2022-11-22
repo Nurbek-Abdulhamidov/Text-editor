@@ -16,7 +16,7 @@ const FourthPage = () => {
         <Navbar send />
       </div>
       {secondData
-        .filter((e) => e.id == +id.replace(":", ""))
+        .filter((e) => e.id === +id.replace(":", ""))
         .map((item, index) => {
           return (
             <Container key={index}>

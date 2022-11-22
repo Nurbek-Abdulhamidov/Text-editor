@@ -6,7 +6,7 @@ import { Wrapper } from "./style";
 
 const Editor = () => {
   const [addData, setVal] = useState("");
-  const [addedData, showData] = useState(0);
+  // const [addedData, showData] = useState(0);
 
   const handleChange = (e, editor) => {
     const data = editor.getData();
@@ -30,6 +30,7 @@ const Editor = () => {
           data={addData}
           onChange={handleChange}
         />
+        <button onClick={onSubmit}></button>
       </Wrapper>
     </div>
   );
