@@ -3,7 +3,7 @@ import { Textarea } from "../../components/Generic";
 import Input from "../../components/Generic/Input";
 import Navbar from "../../components/Navbar";
 
-const Eighth = () => {
+const SevenPage = () => {
   return (
     <div>
       <Navbar send />
@@ -19,4 +19,4 @@ const Eighth = () => {
   );
 };
 
-export default Eighth;
+export default SevenPage;

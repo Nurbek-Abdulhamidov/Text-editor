@@ -11,9 +11,12 @@ const Fourth = lazy(() => import("../pages/Fourth"));
 const FourthPage = lazy(() => import("../pages/FourthPage"));
 const Fifth = lazy(() => import("../pages/Fifth"));
 const FifthPage = lazy(() => import("../pages/FifthPage"));
+const Sixth = lazy(() => import("../pages/Six"));
 const Seventh = lazy(() => import("../pages/Seven"));
+const SeventhPage = lazy(() => import("../pages/SeventhPage"));
 const Eighth = lazy(() => import("../pages/Eighth"));
 const Nineth = lazy(() => import("../pages/Nineth"));
+const NinethPage = lazy(() => import("../pages/NinethPage"));
 const Tenth = lazy(() => import("../pages/Tenth"));
 
 export const navbar = [
@@ -126,7 +129,18 @@ export const navbar = [
     private: false,
     hidden: true,
   },
-  { id: useId, text: "hye", isAct: true, hidden: false },
+  {
+    id: useId,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <Sixth />
+      </Suspense>
+    ),
+    title: "플랫폼 관리",
+    path: "/sixth",
+    private: false,
+    hidden: false,
+  },
   {
     id: useId,
     element: (
@@ -138,6 +152,18 @@ export const navbar = [
     path: "/seventh",
     private: false,
     hidden: false,
+  },
+  {
+    id: useId,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <SeventhPage />
+      </Suspense>
+    ),
+    title: "Seventhpage",
+    path: "/seventh:id",
+    private: false,
+    hidden: true,
   },
   {
     id: useId,
@@ -162,6 +188,18 @@ export const navbar = [
     path: "/nineth",
     private: false,
     hidden: false,
+  },
+  {
+    id: useId,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <NinethPage />
+      </Suspense>
+    ),
+    title: "회원관리",
+    path: "/nineth:id",
+    private: false,
+    hidden: true,
   },
   {
     id: useId,

@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
 export const Container = styled.div``;
 
@@ -28,7 +31,7 @@ export const Right = styled.div`
 export const Wrap = styled.div`
   display: ${({ flex }) => (flex ? "flex" : "")};
   gap: 20px;
-  margin:10px 0 ;
+  margin: 10px 0;
 
   span {
     font-weight: 500;

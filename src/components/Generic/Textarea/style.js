@@ -4,7 +4,8 @@ export const Wrapper = styled.div`
   width: 100%;
   margin: ${({ margin }) => (!margin ? "10px 0" : "")};
   textarea {
-    border-radius: 8px;
+    border: 1px solid #0061df;
+    border-radius: 5px;
     font-weight: 500;
     font-size: 18px;
     color: #000000;
