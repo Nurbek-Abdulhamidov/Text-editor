@@ -26,13 +26,12 @@ const Sidebar = () => {
               </Logo>
             </Section>
             <Section space>
-              {navbar.map(({ path, title, hidden, isAct }, index) => {
+              <p className="title">홈</p>
+              {navbar.map(({ path, title, hidden }, index) => {
                 return (
                   !hidden && (
                     <Link
-                      className={({ isActive }) =>
-                        isAct ? isActive && "active" : isActive && "notActive"
-                      }
+                      className={({ isActive }) => isActive && "active"}
                       key={index}
                       to={path}
                     >
