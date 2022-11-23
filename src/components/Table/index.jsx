@@ -21,7 +21,7 @@ const Table = ({ param, confirm, count }) => {
     setTotalPage(data.length / pageSize);
     setMinIndex(0);
     setMaxIndex(pageSize);
-  }, [pageSize]);
+  }, [data.length,pageSize]);
 
   const handleChange = (page) => {
     setCurrent(page);
