@@ -73,7 +73,7 @@ const Table = ({ param, confirm, count }) => {
             pageSize={pageSize}
             current={current}
             total={data.length}
-            onChange={() => handleChange()}
+            onChange={(page) => handleChange(page)}
           />
           <BtnWrap>
             <GenericButton type="primary" width={"100px"}>
