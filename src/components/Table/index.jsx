@@ -18,7 +18,7 @@ const Table = ({ param, confirm, count }) => {
 
   useEffect(() => {
     setData(secondData);
-    setTotalPage(data.lenth / pageSize);
+    setTotalPage(data.length / pageSize);
     setMinIndex(0);
     setMaxIndex(pageSize);
   }, [pageSize]);
