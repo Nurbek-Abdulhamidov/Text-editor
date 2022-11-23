@@ -5,7 +5,7 @@ const Fifth = () => {
   return (
     <div>
       <Navbar select />
-      <Table param={"fifth"} />
+      <Table count={8} param={"fifth"} />
     </div>
   );
 };

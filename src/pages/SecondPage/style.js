@@ -5,7 +5,9 @@ export const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  width: 100%;
+`;
 
 export const UserData = styled.div`
   display: flex;

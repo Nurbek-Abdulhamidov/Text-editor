@@ -6,7 +6,7 @@ const Nineth = () => {
   return (
     <div>
       <Navbar select />
-      <Table param="nineth"/>
+      <Table count={8} param="nineth"/>
     </div>
   );
 };

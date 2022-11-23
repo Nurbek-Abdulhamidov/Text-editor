@@ -8,7 +8,7 @@ const Fourth = () => {
     <div>
       <Navbar />
       <Selector />
-      <Table param="fourth" />
+      <Table count={8} param="fourth" />
     </div>
   );
 };

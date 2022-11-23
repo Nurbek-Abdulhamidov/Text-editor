@@ -26,18 +26,18 @@ const Sidebar = () => {
               </Logo>
             </Section>
             <Section space>
-              <p className="title">홈</p>
-              {navbar.map(({ path, title, hidden }, index) => {
-                return (
-                  !hidden && (
-                    <Link
-                      className={({ isActive }) => isActive && "active"}
-                      key={index}
-                      to={path}
-                    >
-                      {title}
-                    </Link>
-                  )
+              <p className="asideText">홈</p>
+              {navbar.map(({ path, title, hidden, text, id }, index) => {
+                return !hidden && id !== 6 ? (
+                  <Link
+                    className={({ isActive }) => isActive && "active"}
+                    key={index}
+                    to={path}
+                  >
+                    {title}
+                  </Link>
+                ) : (
+                  <p className="asideText">{text}</p>
                 );
               })}
               <BtnWrap>

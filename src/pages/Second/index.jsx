@@ -11,7 +11,7 @@ const Second = () => {
         <Selector />
       </div>
       <div>
-        <Table param="second" />
+        <Table count={8} param="second" />
       </div>
     </div>
   );

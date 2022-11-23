@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Radio } from "antd";
-const RadioBtn = () => {
+const RadioBtn = ({ radios }) => {
   const [value, setValue] = useState(1);
   const onChange = (e) => {
     console.log("radio checked", e.target.value);
@@ -10,10 +10,13 @@ const RadioBtn = () => {
     <Radio.Group
       onChange={onChange}
       value={value}
-      style={{ display: "flex", gap: "80px" }}
+      style={{ display: "flex", gap: "80px", margin: "20px 0" }}
     >
-      <Radio value={1}>운동</Radio>
-      <Radio value={2}>식이</Radio>
+      {radios.map((item, index) => (
+        <Radio value={item.id} key={index}>
+          {item.text}
+        </Radio>
+      ))}
     </Radio.Group>
   );
 };

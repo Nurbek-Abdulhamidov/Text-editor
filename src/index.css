@@ -42,3 +42,9 @@ code {
   font-weight: 400;
   padding: 0 10px;
 }
+
+.asideText {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+}

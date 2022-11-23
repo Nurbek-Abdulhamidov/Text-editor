@@ -35,11 +35,6 @@ export const Section = styled.section`
     background-color: #0061df;
   }
 
-  .notActive {
-    transition: all 0.3s ease;
-    background-color: red;
-  }
-
   .active:hover {
     background-color: #0061df;
   }
@@ -58,7 +53,6 @@ export const Link = styled(NavLink)`
   font-size: 18px;
   padding: 8px;
   border-radius: 5px;
-  margin: 2px 0;
 
   :hover {
     transition: all 0.3s ease;

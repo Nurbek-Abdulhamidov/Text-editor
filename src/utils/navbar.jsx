@@ -130,16 +130,8 @@ export const navbar = [
     hidden: true,
   },
   {
-    id: useId,
-    element: (
-      <Suspense fallback={<Loading />}>
-        <Sixth />
-      </Suspense>
-    ),
-    title: "플랫폼 관리",
-    path: "/sixth",
-    private: false,
-    hidden: false,
+    id: 6,
+    text: "플랫폼 관리",
   },
   {
     id: useId,

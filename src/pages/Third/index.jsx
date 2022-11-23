@@ -9,7 +9,7 @@ const Third = () => {
       <Navbar />
       <Selector />
       <div>
-        <Table param="third" />
+        <Table count={8} param="third"  />
       </div>
     </div>
   );

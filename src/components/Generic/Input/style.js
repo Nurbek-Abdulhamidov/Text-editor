@@ -36,7 +36,7 @@ export const Container = styled.input`
   font-size: 14px;
   line-height: 20px;
   color: #0d263b;
-  border: 1px solid #e6e9ec;
+  border: 2px solid #e9e9ec;
   outline: none;
 
   :focus {

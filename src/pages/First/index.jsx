@@ -10,7 +10,7 @@ const First = () => {
         <Navbar />
       </div>
       <div>
-        <Table confirm />
+        <Table count={8} confirm />
       </div>
     </div>
   );

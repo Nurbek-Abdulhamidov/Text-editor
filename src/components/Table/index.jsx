@@ -7,8 +7,8 @@ import LocalizedModal from "../../components/Generic/Modal";
 
 import { TableDiv, Thead, Trow, Td, Tbody, BtnWrap } from "./style";
 import { Pagination } from "antd";
-const pageSize = 8;
-const Table = ({ param, confirm }) => {
+const Table = ({ param, confirm, count }) => {
+  const pageSize = count;
   const [data, setData] = useState([]);
   const [totalPage, setTotalPage] = useState(0);
   const [current, setCurrent] = useState(1);
