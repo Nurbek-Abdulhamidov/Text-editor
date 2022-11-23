@@ -37,7 +37,9 @@ const Sidebar = () => {
                     {title}
                   </Link>
                 ) : (
-                  <p className="asideText">{text}</p>
+                  <p key={index} className="asideText">
+                    {text}
+                  </p>
                 );
               })}
               <BtnWrap>
