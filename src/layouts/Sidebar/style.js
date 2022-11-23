@@ -51,7 +51,7 @@ export const Link = styled(NavLink)`
   text-decoration: none;
   color: #fff;
   font-size: 18px;
-  padding: 8px;
+  padding: 6px;
   border-radius: 5px;
 
   :hover {
