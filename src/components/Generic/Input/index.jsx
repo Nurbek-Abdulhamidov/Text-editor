@@ -12,7 +12,7 @@ const Input = ({
   mb,
   mt,
   pl,
-  onChange,
+  onChange = Function.prototype,
   placeholder,
   defaultValue,
 }) => {
@@ -21,7 +21,7 @@ const Input = ({
       <Icon>{children}</Icon>
       <Container
         defaultValue={defaultValue}
-        onChange={onChange}
+        onChange={({target}) => onChange(target.value)}
         placeholder={placeholder}
         pl={pl}
         type={type}

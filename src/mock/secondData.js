@@ -1,7 +1,7 @@
 export const secondData = [
   {
     id: 1,
-    name: "user13",
+    name: "nurbek",
     number: "1",
     date: "2022.08.30",
     leftDayNumber: "완료",
@@ -20,7 +20,7 @@ export const secondData = [
   },
   {
     id: 2,
-    name: "user12",
+    name: "Jasur",
     number: "1",
     date: "2022.08.30",
     leftDayNumber: "완료",

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import secondData from "../../mock/secondData";
 import { GenericButton } from "../Generic";
@@ -7,7 +7,11 @@ import LocalizedModal from "../../components/Generic/Modal";
 
 import { TableDiv, Thead, Trow, Td, Tbody, BtnWrap } from "./style";
 import { Pagination } from "antd";
+import { UserContext } from "../../context/context";
+
 const Table = ({ param, confirm, count }) => {
+  const [users, setUsers] = useContext(UserContext);
+
   const pageSize = count;
   const [data, setData] = useState([]);
   const [totalPage, setTotalPage] = useState(0);
@@ -42,7 +46,7 @@ const Table = ({ param, confirm, count }) => {
           </Trow>
         </Thead>
         <Tbody>
-          {data?.map(
+          {users?.map(
             (item, index) =>
               index >= minIndex &&
               index < maxIndex && (
