@@ -21,7 +21,7 @@ const Sidebar = () => {
   return (
     <main>
       <Wrapper>
-        {login ? (
+        {localStorage.getItem("token") ? (
           <Container>
             <Aside>
               <Section logo onClick={() => navigate("/home")}>

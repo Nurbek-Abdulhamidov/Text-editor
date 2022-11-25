@@ -20,7 +20,7 @@ const FifthPage = () => {
         }}
       >
         <label className="text">운동, 식이 (택1)</label>
-        <RadioBtn />
+        {/* <RadioBtn /> */}
       </div>
       <div>
         <Editor />

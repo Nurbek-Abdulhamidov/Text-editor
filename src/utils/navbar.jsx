@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import Loading from "../components/Generic/Loading";
 import useId from "../hooks/useId";
+import Login from "../pages/Login";
 
 const First = lazy(() => import("../pages/First"));
 const Second = lazy(() => import("../pages/Second"));
@@ -19,6 +20,13 @@ const NinethPage = lazy(() => import("../pages/NinethPage"));
 const Tenth = lazy(() => import("../pages/Tenth"));
 
 export const navbar = [
+  {
+    id: useId,
+    element: <Login />,
+    path: "/login",
+    private: false,
+    hidden: true,
+  },
   {
     id: useId,
     element: (

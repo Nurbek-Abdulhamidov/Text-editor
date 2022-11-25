@@ -4,6 +4,7 @@ import { Container, Icon, Wrapper } from "./style";
 const Input = ({
   children,
   onClick,
+  name,
   height,
   width,
   type,
@@ -12,7 +13,7 @@ const Input = ({
   mb,
   mt,
   pl,
-  onChange = Function.prototype,
+  onChange,
   placeholder,
   defaultValue,
 }) => {
@@ -20,8 +21,9 @@ const Input = ({
     <Wrapper mr={mr} ml={ml} mb={mb} mt={mt}>
       <Icon>{children}</Icon>
       <Container
+      name={name}
         defaultValue={defaultValue}
-        onChange={({target}) => onChange(target.value)}
+        onChange={onChange}
         placeholder={placeholder}
         pl={pl}
         type={type}
