@@ -9,8 +9,6 @@ import { message } from "antd";
 
 const Login = () => {
   const [body, setBody] = useState({});
-  const [error, setError] = useState(false);
-  const [data, setData] = useState();
   const navigate = useNavigate();
 
   const onChange = ({ target: { value, name } }) => {
@@ -29,7 +27,7 @@ const Login = () => {
 
   const onSubmit = async () => {
     try {
-      await fetch("http://13.125.232.195/member/login", {
+      await fetch("http://13.125.232.195/admin/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,10 +36,10 @@ const Login = () => {
       })
         .then((res) => res.json())
         .then((res) => {
-          if (res?.data.member_access_token) {
+          if (res?.data.manager_access_token) {
             navigate("/home");
             info("info");
-            localStorage.setItem("token", res?.data.member_access_token);
+            localStorage.setItem("token", res?.data.manager_access_token);
           }
         });
     } catch (error) {
@@ -58,7 +56,7 @@ const Login = () => {
           <Input
             onChange={onChange}
             placeholder="email"
-            name="member_email"
+            name="manager_login"
             type="email"
           />
         </div>
@@ -67,7 +65,7 @@ const Login = () => {
           <Input
             onChange={onChange}
             placeholder="password"
-            name="member_password"
+            name="manager_password"
             type="password"
           />
         </div>

@@ -10,7 +10,7 @@ import { Pagination } from "antd";
 import { UserContext } from "../../context/context";
 
 const Table = ({ param, confirm, count }) => {
-  const [users, setUsers] = useContext(UserContext);
+  const [users] = useContext(UserContext);
 
   const pageSize = count;
   const [data, setData] = useState([]);

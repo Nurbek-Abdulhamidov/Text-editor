@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import Button from "../../components/Generic/Button";
 import Login from "../../pages/Login";
@@ -17,11 +16,12 @@ import {
 
 const Sidebar = () => {
   const navigate = useNavigate();
-  const [login, setLogin] = useState(true);
   return (
     <main>
       <Wrapper>
-        {localStorage.getItem("token") ? (
+        {!localStorage.getItem("token") ? (
+          <Login />
+        ) : (
           <Container>
             <Aside>
               <Section logo onClick={() => navigate("/home")}>
@@ -55,8 +55,6 @@ const Sidebar = () => {
               <Outlet />
             </Main>
           </Container>
-        ) : (
-          <Login />
         )}
       </Wrapper>
     </main>
