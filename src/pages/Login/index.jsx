@@ -53,12 +53,7 @@ const Login = () => {
         <img src={loginImg} alt="" />
         <div>
           <label>ID</label>
-          <Input
-            onChange={onChange}
-            placeholder="email"
-            name="manager_login"
-            type="email"
-          />
+          <Input onChange={onChange} placeholder="email" name="manager_login" />
         </div>
         <div>
           <label>PW</label>
@@ -66,7 +61,6 @@ const Login = () => {
             onChange={onChange}
             placeholder="password"
             name="manager_password"
-            type="password"
           />
         </div>
         <div>
