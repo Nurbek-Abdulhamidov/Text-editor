@@ -1,7 +1,6 @@
 import React from "react";
 import Editor from "../../components/Editor";
 import Input from "../../components/Generic/Input";
-import RadioBtn from "../../components/Generic/Radio";
 import Navbar from "../../components/Navbar";
 
 const FifthPage = () => {
@@ -20,7 +19,6 @@ const FifthPage = () => {
         }}
       >
         <label className="text">운동, 식이 (택1)</label>
-        {/* <RadioBtn /> */}
       </div>
       <div>
         <Editor />
