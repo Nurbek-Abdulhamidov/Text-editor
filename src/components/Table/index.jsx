@@ -1,15 +1,23 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import secondData from "../../mock/secondData";
-import { GenericButton } from "../Generic";
-import Button from "../Generic/Button";
-import LocalizedModal from "../../components/Generic/Modal";
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import secondData from '../../mock/secondData';
+import { GenericButton } from '../Generic';
+import Button from '../Generic/Button';
+import LocalizedModal from '../../components/Generic/Modal';
 
-import { TableDiv, Thead, Trow, Td, Tbody, BtnWrap } from "./style";
-import { Pagination } from "antd";
-import { UserContext } from "../../context/context";
+import { TableDiv, Thead, Trow, Td, Tbody, BtnWrap } from './style';
+import { Pagination } from 'antd';
+import { UserContext } from '../../context/context';
 
-const Table = ({ param, confirm, count }) => {
+const Table = ({
+  data: info,
+  param,
+  confirm,
+  count,
+  header,
+  bodySample,
+  type,
+}) => {
   const [users] = useContext(UserContext);
 
   const pageSize = count;
@@ -27,46 +35,49 @@ const Table = ({ param, confirm, count }) => {
     setMaxIndex(pageSize);
   }, [data.length, pageSize]);
 
-
   const handleChange = (page) => {
     setCurrent(page);
     setMinIndex((page - 1) * pageSize);
     setMaxIndex(page * pageSize);
   };
+  console.log(info, ';;;');
 
-  
   return (
     <div>
       <TableDiv>
         <Thead>
           <Trow>
-            <Td>번호</Td>
-            <Td>작성자 ID</Td>
-            <Td>회원 등급</Td>
-            <Td>등록일</Td>
-            <Td>남은 일수</Td>
-            <Td>작성 상태</Td>
+            {header?.map((item) => (
+              <Td> {item} </Td>
+            ))}
           </Trow>
         </Thead>
         <Tbody>
-          {users?.map(
+          {info?.map(
             (item, index) =>
               index >= minIndex &&
               index < maxIndex && (
                 <Trow hover key={index}>
-                  <Td>{item.id}</Td>
-                  <Td>{item.name}</Td>
-                  <Td>{item.number}</Td>
-                  <Td>{item.date}</Td>
-                  <Td>{item.leftDayNumber}</Td>
+                  {bodySample.map((sam) => (
+                    <Td> {item[sam] || 'not given'} </Td>
+                  ))}
+                  {/* <Td>{item.manager_id || 'not given'}</Td>
+                  <Td>{item.manager_type || 'not given'}</Td>
+                  <Td>{item.managerId || 'not given'}</Td>
+                  <Td>{item.manager_phone_number || 'not given'}</Td>
+                  <Td>{item.manager_status}</Td> */}
                   <Td>
                     {confirm ? (
-                      <LocalizedModal title="검색" />
+                      <LocalizedModal id={item?.manager_id} title={type} />
                     ) : (
                       <Button
-                        type="outlined"
-                        onClick={() => navigate(`/${param}:${item.id}`)}
-                        width={"100px"}
+                        type='outlined'
+                        onClick={() =>
+                          navigate(
+                            `/${param}:${item.id || item.consultation_id}`
+                          )
+                        }
+                        width={'100px'}
                       >
                         탈퇴
                       </Button>
@@ -85,7 +96,7 @@ const Table = ({ param, confirm, count }) => {
         onChange={(page) => handleChange(page)}
       />
       <BtnWrap>
-        <GenericButton type="primary" width={"100px"}>
+        <GenericButton type='primary' width={'100px'}>
           검색
         </GenericButton>
       </BtnWrap>
