@@ -7,6 +7,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { message } from "antd";
 
+const { REACT_APP_BASE_URL: url } = process.env;
+console.log(url, "url");
 const Login = () => {
   const [body, setBody] = useState({});
   const navigate = useNavigate();
@@ -27,7 +29,8 @@ const Login = () => {
 
   const onSubmit = async () => {
     try {
-      await fetch("http://13.125.232.195/admin/login", {
+      // await fetch(`/api/* http://endpoint.com/api/:splat 200!`, {
+      await fetch(`http://13.125.232.195/admin/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
