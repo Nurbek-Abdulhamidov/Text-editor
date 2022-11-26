@@ -27,11 +27,14 @@ const Table = ({ param, confirm, count }) => {
     setMaxIndex(pageSize);
   }, [data.length, pageSize]);
 
+
   const handleChange = (page) => {
     setCurrent(page);
     setMinIndex((page - 1) * pageSize);
     setMaxIndex(page * pageSize);
   };
+
+  
   return (
     <div>
       <TableDiv>
