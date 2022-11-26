@@ -65,7 +65,7 @@ const Table = ({ param, confirm, count }) => {
                         onClick={() => navigate(`/${param}:${item.id}`)}
                         width={"100px"}
                       >
-                        조회
+                        탈퇴
                       </Button>
                     )}
                   </Td>

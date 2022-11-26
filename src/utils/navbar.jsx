@@ -25,7 +25,7 @@ export const navbar = [
     element: <Login />,
     path: "/login",
     private: false,
-    hidden: true,
+    hide: true,
   },
   {
     id: useId,
