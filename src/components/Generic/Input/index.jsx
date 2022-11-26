@@ -30,6 +30,7 @@ const Input = ({
         width={width}
         height={height}
         onClick={onClick}
+        mb={mb}
       ></Container>
     </Wrapper>
   );

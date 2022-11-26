@@ -4,6 +4,7 @@ import { useState } from "react";
 import Button from "../../components/Generic/Button";
 import Navbar from "../../components/Navbar";
 import Table from "../../components/Table";
+import Login from "../Login";
 
 const { REACT_APP_BASE_URL: url } = process.env;
 let token = localStorage.getItem("token");
@@ -37,15 +38,13 @@ const Home = () => {
     getClick();
   }, []);
 
-  console.log(data);
-
   return (
     <div>
       <div>
         <Navbar />
       </div>
       <div>
-        <Table count={8} confirm />
+        <Table info={data} count={8} confirm />
       </div>
     </div>
   );
