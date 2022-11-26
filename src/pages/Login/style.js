@@ -34,10 +34,29 @@ export const Flex = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
 export const Center = styled.div`
   display: flex;
   justify-content: center;
 `;
+
+export const Test = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 24%;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+`;
+
 export const Line = styled.div`
   position: relative;
   border-top: 1px solid #efefef;
