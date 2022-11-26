@@ -1,26 +1,23 @@
 import React, { useEffect } from "react";
-import { useState } from "react";
-
 import Navbar from "../../components/Navbar";
 import Table from "../../components/Table";
-import Login from "../Login";
 
 const { REACT_APP_BASE_URL: url } = process.env;
 let token = localStorage.getItem("token");
-console.log(token);
-const First = () => {
-  console.log("sd");
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    fetch(`${url}/admin/managers`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application-json",
-        manager_access_token: token,
-      },
-      // body: JSON.stringify(data),
-    }).then((res) => console.log(res));
-  }, []);
+
+const Home = () => {
+  // useEffect(() => {
+  //   fetch(`${url}/admin/managers`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application-json",
+  //       Authentication:
+  //         "Ybk7eaFQTwIvH9kD3h4GRYYUIRyHi9y6mD6MqxC7tOQmHfSOj1Sm2qRVf3AKtsHOG1G7d2j4tP9jZ3cvCxl9V4jAmOTQRXxqM0sMSrFXdNokKy1WLACYvn6q4KWnO0x62uetrWSOuOFvVn7EfVqpQ9",
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => console.log(res));
+  // }, []);
   return (
     <div>
       <div>
@@ -33,4 +30,4 @@ const First = () => {
   );
 };
 
-export default First;
+export default Home;

@@ -1,11 +1,11 @@
 import React from "react";
-import  "./style.css";
+import "./style.css";
 
 const Loading = () => {
   return (
     <>
-      <div class="section-loading">
-        <ul class="list-bars">
+      <div className="section-loading">
+        <ul className="list-bars">
           <li></li>
           <li></li>
           <li></li>

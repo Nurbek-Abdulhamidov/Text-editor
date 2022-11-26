@@ -33,7 +33,7 @@ const Table = ({ param, confirm, count }) => {
     setMaxIndex(page * pageSize);
   };
   return (
-    <>
+    <div>
       <TableDiv>
         <Thead>
           <Trow>
@@ -72,21 +72,21 @@ const Table = ({ param, confirm, count }) => {
                 </Trow>
               )
           )}
-          <Pagination
-            totalPage={totalPage}
-            pageSize={pageSize}
-            current={current}
-            total={data.length}
-            onChange={(page) => handleChange(page)}
-          />
-          <BtnWrap>
-            <GenericButton type="primary" width={"100px"}>
-              검색
-            </GenericButton>
-          </BtnWrap>
         </Tbody>
       </TableDiv>
-    </>
+      <Pagination
+        totalPage={totalPage}
+        pageSize={pageSize}
+        current={current}
+        total={data.length}
+        onChange={(page) => handleChange(page)}
+      />
+      <BtnWrap>
+        <GenericButton type="primary" width={"100px"}>
+          검색
+        </GenericButton>
+      </BtnWrap>
+    </div>
   );
 };
 
