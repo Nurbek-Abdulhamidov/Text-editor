@@ -49,7 +49,7 @@ const Login = () => {
 
   setTimeout(() => {
     setAnimate(false);
-  }, 0);
+  }, 3000);
 
   const info = () => {
     message.info("Successfully Loged in !");
@@ -119,9 +119,7 @@ const Login = () => {
                     class="form-control"
                     mb="15"
                   />
-                  <button
-                    onClick={togglePassword}
-                  >
+                  <button onClick={togglePassword}>
                     {passwordType === "password" ? (
                       <i>
                         <AiFillEyeInvisible />

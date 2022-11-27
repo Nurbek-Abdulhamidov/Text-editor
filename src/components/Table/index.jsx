@@ -9,7 +9,7 @@ import { TableDiv, Thead, Trow, Td, Tbody, BtnWrap } from "./style";
 import { Pagination } from "antd";
 import { UserContext } from "../../context/context";
 
-const Table = ({ param, confirm, count,info }) => {
+const Table = ({ param, confirm, count }) => {
   const [users] = useContext(UserContext);
 
   const pageSize = count;
@@ -21,20 +21,17 @@ const Table = ({ param, confirm, count,info }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setData(info);
+    setData(secondData);
     setTotalPage(data.length / pageSize);
     setMinIndex(0);
     setMaxIndex(pageSize);
   }, [data.length, pageSize]);
 
-console.log(data);
   const handleChange = (page) => {
     setCurrent(page);
     setMinIndex((page - 1) * pageSize);
     setMaxIndex(page * pageSize);
   };
-
-  
   return (
     <div>
       <TableDiv>

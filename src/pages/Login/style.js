@@ -92,11 +92,11 @@ export const AnimateImg = styled.div`
       opacity: 1;
     }
     30% {
-      height: 600px;
+      height: 400px;
       opacity: 0.6;
     }
-    10% {
+    /* 10% {
       height: -300px;
-    }
+    } */
   }
 `;
