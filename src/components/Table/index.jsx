@@ -91,7 +91,7 @@ const Table = ({
                         }
                         width={"100px"}
                       >
-                        탈퇴
+                        탈퇴f
                       </Button>
                     )}
                   </Td>
