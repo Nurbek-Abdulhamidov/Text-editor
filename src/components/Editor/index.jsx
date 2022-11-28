@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import axios from "axios";
-import { Wrapper } from "./style";
+import React, { useState } from 'react';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import axios from 'axios';
+import { Wrapper } from './style';
 
 const Editor = () => {
-  const [addData, setVal] = useState("");
+  const [addData, setVal] = useState('');
   // const [addedData, showData] = useState(0);
 
   const handleChange = (e, editor) => {
@@ -15,10 +15,9 @@ const Editor = () => {
 
   const onSubmit = async () => {
     await axios.post(
-      "https://jsonplaceholder.typicode.com/users",
+      'https://jsonplaceholder.typicode.com/users',
       JSON.stringify(addData)
     );
-    console.log(JSON.stringify(addData));
   };
 
   return (

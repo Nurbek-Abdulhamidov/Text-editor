@@ -3,9 +3,11 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Selector from '../../components/Generic/NavBottom';
 import Table from '../../components/Table';
+import { useConsulation } from '../../context/consultation';
 
 const Second = () => {
   const { REACT_APP_BASE_URL: url } = process.env;
+  const [{ order, status, per_page, page_number }] = useConsulation();
   let token = localStorage.getItem('token');
   const [data, setData] = useState([]);
 
@@ -14,10 +16,10 @@ const Second = () => {
       consultation_type: 'comprehensive',
       search_scope: 'all',
       search_keyword: '',
-      consultation_status: 'all',
-      order_by: 'remaining_days',
-      per_page: 10,
-      page_number: 1,
+      consultation_status: status,
+      order_by: order,
+      per_page: per_page || data?.length,
+      page_number: page_number,
     };
     try {
       const { data } = await axios.post(`${url}/admin/consultations`, body, {
@@ -25,15 +27,13 @@ const Second = () => {
           Authentication: token,
         },
       });
-      console.log(data, '[pad');
       setData(data?.data);
-    } catch (error) {
-      console.log('fail', error);
-    }
+    } catch (error) {}
   };
   useEffect(() => {
     getClick();
-  }, []);
+  }, [order, status, per_page, page_number]);
+  console.log(per_page, 'per_page');
   let header = [
     '번호',
     '작성자  ID',
@@ -49,7 +49,6 @@ const Second = () => {
     'update_time',
     'remaining_days',
   ];
-  console.log(data, '[[[p');
   return (
     <div>
       <div>

@@ -1,8 +1,16 @@
-import React from "react";
-import { Switch } from "antd";
-import { memo } from "react";
-const onChange = (checked) => {
-  console.log(`switch to ${checked}`);
+import React from 'react';
+import { Switch } from 'antd';
+import { useConsulation } from '../../../context/consultation';
+const Switcher = () => {
+  const [{ status }, dispatch] = useConsulation();
+  const onChange = (checked) => {
+    checked = checked ? 'consulted' : 'unconsulted';
+    dispatch({
+      type: 'status',
+      payload: checked,
+    });
+  };
+  console.log(status);
+  return <Switch onChange={onChange} />;
 };
-const Switcher = () => <Switch defaultChecked onChange={onChange} />;
-export default memo(Switcher);
+export default Switcher;
