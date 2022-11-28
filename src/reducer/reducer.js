@@ -1,11 +1,10 @@
 export const reducer = (state, action) => {
-  console.log(state, action);
   switch (action.type) {
-    case "plus":
+    case 'plus':
       return state + 1;
-    case "minus":
+    case 'minus':
       return state - 1;
-    case "byAmount":
+    case 'byAmount':
       return state + action.payload;
     default:
       return state;

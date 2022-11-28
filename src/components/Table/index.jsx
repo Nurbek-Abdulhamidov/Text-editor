@@ -8,6 +8,7 @@ import LocalizedModal from '../../components/Generic/Modal';
 import { TableDiv, Thead, Trow, Td, Tbody, BtnWrap } from './style';
 import { Pagination } from 'antd';
 import { UserContext } from '../../context/context';
+import { useConsulation } from '../../context/consultation';
 
 const Table = ({
   data: info,
@@ -19,28 +20,34 @@ const Table = ({
   type,
 }) => {
   const [users] = useContext(UserContext);
-
+  const [{ per_page, page_number }, dispatch] = useConsulation();
   const pageSize = count;
   const [data, setData] = useState([]);
-  const [totalPage, setTotalPage] = useState(0);
-  const [current, setCurrent] = useState(1);
+
   const [minIndex, setMinIndex] = useState(0);
   const [maxIndex, setMaxIndex] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {
     setData(secondData);
-    setTotalPage(data.length / pageSize);
     setMinIndex(0);
     setMaxIndex(pageSize);
   }, [data.length, pageSize]);
 
-  const handleChange = (page) => {
-    setCurrent(page);
-    setMinIndex((page - 1) * pageSize);
-    setMaxIndex(page * pageSize);
+  const handlePaginationChange = (n) => {
+    dispatch({ type: 'page_number', payload: n });
   };
-  console.log(info, ';;;');
+  const onShowSizeChange = (current, size) => {
+    dispatch({
+      type: 'page_number',
+      payload: current,
+    });
+
+    dispatch({
+      type: 'per_page',
+      payload: size,
+    });
+  };
 
   return (
     <div>
@@ -61,11 +68,6 @@ const Table = ({
                   {bodySample.map((sam) => (
                     <Td> {item[sam] || 'not given'} </Td>
                   ))}
-                  {/* <Td>{item.manager_id || 'not given'}</Td>
-                  <Td>{item.manager_type || 'not given'}</Td>
-                  <Td>{item.managerId || 'not given'}</Td>
-                  <Td>{item.manager_phone_number || 'not given'}</Td>
-                  <Td>{item.manager_status}</Td> */}
                   <Td>
                     {confirm ? (
                       <LocalizedModal id={item?.manager_id} title={type} />
@@ -89,11 +91,15 @@ const Table = ({
         </Tbody>
       </TableDiv>
       <Pagination
-        totalPage={totalPage}
-        pageSize={pageSize}
-        current={current}
+        onShowSizeChange={onShowSizeChange}
+        showSizeChanger
+        pageSize={per_page}
+        current={page_number}
         total={data.length}
-        onChange={(page) => handleChange(page)}
+        defaultPageSize={per_page}
+        onChange={handlePaginationChange}
+        defaultCurrent={per_page}
+        pageSizeOptions={['5', '10', '20', '50', '100']}
       />
       <BtnWrap>
         <GenericButton type='primary' width={'100px'}>

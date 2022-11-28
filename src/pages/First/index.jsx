@@ -23,12 +23,10 @@ const Home = () => {
           Authentication: token,
         },
       });
-      console.log(data, 'adadadasd');
       setData(data?.data);
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      console.log('fail', error);
     }
   };
 
