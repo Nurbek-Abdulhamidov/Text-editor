@@ -5,10 +5,115 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100%;
 `;
 
 export const Container = styled.div`
   max-width: 350px;
   width: 100%;
+
+  @media (max-width: 380px) {
+    padding: 20px;
+  } ;
 `;
- 
+
+export const Content = styled.div`
+  h4 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #000;
+    margin: 25px 0;
+    @media (max-width: 380px) {
+      margin: 10px 0;
+      font-size: 20px;
+      line-height: 28px;
+    }
+    @media (max-width: 330px) {
+      display: none;
+    }
+  }
+
+  label {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #000000;
+  }
+`;
+
+export const Flex = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const Center = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const Test = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 24%;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+`;
+
+export const Line = styled.div`
+  position: relative;
+  border-top: 1px solid #efefef;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+
+  p {
+    position: absolute;
+    bottom: -22px;
+  }
+
+  @media (max-width: 380px) {
+    margin: 20px 0;
+  } ;
+
+  @media (max-width: 330px) {
+    margin: 5px 0;
+    }
+`;
+
+export const AnimateImg = styled.div`
+  position: relative;
+  bottom: -40px;
+  animation-name: breath-animation;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+
+  @keyframes breath-animation {
+    0% {
+      height: 100px;
+      opacity: 0.5;
+    }
+    30% {
+      height: 300px;
+      opacity: 0.8;
+    }
+    60% {
+      height: 400px;
+      opacity: 1;
+    }
+    30% {
+      height: 400px;
+      opacity: 0.6;
+    }
+  }
+`;

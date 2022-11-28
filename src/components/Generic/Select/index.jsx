@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Select } from 'antd';
 import { Wrapper } from './style';
 import { useConsulation } from '../../../context/consultation';
@@ -36,4 +36,4 @@ const Selection = ({ mr }) => {
     </Wrapper>
   );
 };
-export default Selection;
+export default memo( Selection);

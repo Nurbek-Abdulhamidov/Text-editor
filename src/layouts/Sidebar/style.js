@@ -22,6 +22,10 @@ export const Aside = styled.aside`
   flex: 1;
   padding: 10px;
   height: 100vh;
+
+  @media (max-width: 1220px) {
+    display: none;
+  }
 `;
 
 export const Section = styled.section`
@@ -53,6 +57,7 @@ export const Link = styled(NavLink)`
   font-size: 16px;
   padding: 6px 10px;
   border-radius: 5px;
+  margin: 2px 0;
 
   :hover {
     transition: all 0.3s ease;
