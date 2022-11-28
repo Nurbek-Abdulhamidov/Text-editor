@@ -71,7 +71,7 @@ const Login = () => {
         .then((res) => {
           if (res?.data.manager_access_token) {
             navigate("/home");
-            info("info");
+            info();
             localStorage.setItem("token", res?.data.manager_access_token);
           }
         });
