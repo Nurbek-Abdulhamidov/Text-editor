@@ -51,13 +51,6 @@ const Login = () => {
     setAnimate(false);
   }, 3500);
 
-  const info = () => {
-    message.info("Login success");
-  };
-  const warning = () => {
-    message.warning("Incorrect password. Please try again");
-  };
-
   const onSubmit = async () => {
     try {
       await fetch(`${url}/admin/login`, {
@@ -71,13 +64,20 @@ const Login = () => {
         .then((res) => {
           if (res?.data.manager_access_token) {
             navigate("/home");
-            info();
+            info(res.message);
             localStorage.setItem("token", res?.data.manager_access_token);
           }
         });
     } catch (error) {
-      warning();
+      warning("Incorrect password. Please try again");
     }
+  };
+
+  const info = (info) => {
+    message.info(info);
+  };
+  const warning = (er) => {
+    message.warning(er);
   };
 
   return (
