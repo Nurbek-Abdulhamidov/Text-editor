@@ -49,13 +49,13 @@ const Login = () => {
 
   setTimeout(() => {
     setAnimate(false);
-  }, 3000);
+  }, 3500);
 
   const info = () => {
-    message.info("Successfully Loged in !");
+    message.info("Login success");
   };
   const warning = () => {
-    message.warning("Login yoki Email xato");
+    message.warning("Incorrect password. Please try again");
   };
 
   const onSubmit = async () => {
