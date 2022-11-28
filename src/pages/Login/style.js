@@ -11,6 +11,10 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
   max-width: 350px;
   width: 100%;
+
+  @media (max-width: 380px) {
+    padding: 20px;
+  } ;
 `;
 
 export const Content = styled.div`
@@ -20,6 +24,14 @@ export const Content = styled.div`
     line-height: 36px;
     color: #000;
     margin: 25px 0;
+    @media (max-width: 380px) {
+      margin: 10px 0;
+      font-size: 20px;
+      line-height: 28px;
+    }
+    @media (max-width: 330px) {
+      display: none;
+    }
   }
 
   label {
@@ -69,6 +81,14 @@ export const Line = styled.div`
     position: absolute;
     bottom: -22px;
   }
+
+  @media (max-width: 380px) {
+    margin: 20px 0;
+  } ;
+
+  @media (max-width: 330px) {
+    margin: 5px 0;
+    }
 `;
 
 export const AnimateImg = styled.div`
@@ -95,8 +115,5 @@ export const AnimateImg = styled.div`
       height: 400px;
       opacity: 0.6;
     }
-    /* 10% {
-      height: -300px;
-    } */
   }
 `;

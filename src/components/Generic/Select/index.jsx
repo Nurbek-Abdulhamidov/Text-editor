@@ -1,9 +1,11 @@
 import React from "react";
 import { Select } from "antd";
 import { Wrapper } from "./style";
+import { memo } from "react";
 const handleChange = (value) => {
   console.log(`selected ${value}`);
 };
+
 const Selection = ({ mr }) => (
   <Wrapper>
     <Select
@@ -30,4 +32,4 @@ const Selection = ({ mr }) => (
     />
   </Wrapper>
 );
-export default Selection;
+export default memo(Selection);

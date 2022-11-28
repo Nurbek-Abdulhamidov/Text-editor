@@ -5,7 +5,7 @@ import { GenericButton } from "../Generic";
 import Button from "../Generic/Button";
 import LocalizedModal from "../../components/Generic/Modal";
 
-import { TableDiv, Thead, Trow, Td, Tbody, BtnWrap } from "./style";
+import { TableDiv, Thead, Trow, Td, Tbody, BtnWrap, TableWrap } from "./style";
 import { Pagination } from "antd";
 import { UserContext } from "../../context/context";
 
@@ -41,13 +41,18 @@ const Table = ({
     setMaxIndex(page * pageSize);
   };
 
+  const getLogOut = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   return (
-    <div>
+    <TableWrap>
       <TableDiv>
         <Thead>
           <Trow>
-            {header?.map((item) => (
-              <Td> {item} </Td>
+            {header?.map((item, index) => (
+              <Td key={index}> {item} </Td>
             ))}
           </Trow>
         </Thead>
@@ -95,11 +100,15 @@ const Table = ({
         onChange={(page) => handleChange(page)}
       />
       <BtnWrap>
-        <GenericButton type="primary" width={"100px"}>
+        <GenericButton
+          onClick={() => getLogOut()}
+          type="primary"
+          width={"100px"}
+        >
           검색
         </GenericButton>
       </BtnWrap>
-    </div>
+    </TableWrap>
   );
 };
 

@@ -1,26 +1,5 @@
 import styled from "styled-components";
 
-// const getType = (type) => {
-//   switch (type) {
-//     case "secondary":
-//       return {
-//         border: "1px solid #e6e9ec",
-//         color: "#0D263B",
-//       };
-//     case "primary":
-//       return {
-//         background: "#0061DF",
-//         color: "#FFFFFF",
-//         border: "none",
-//       };
-//     default:
-//       return {
-//         border: "1px solid #E6E9EC",
-//         color: "#FFFFFF",
-//       };
-//   }
-// };
-
 export const Container = styled.input`
   display: flex;
   height: ${({ height }) => height || "44px"};
@@ -48,12 +27,16 @@ export const Wrapper = styled.div`
   display: flex;
   position: relative;
   width: 100%;
-  margin:10px 0 ;
+  margin: 10px 0;
 
   margin-right: ${({ mr }) => `${mr}px`};
   margin-left: ${({ ml }) => `${ml}px`};
   margin-top: ${({ mt }) => `${mt}px`};
   margin-bottom: ${({ mb }) => `${mb}px`};
+
+  @media (max-width: 330px) {
+    margin-bottom: 5px;
+  }
 `;
 
 export const Icon = styled.div`

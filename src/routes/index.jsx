@@ -8,7 +8,7 @@ const Root = () => {
     <BrowserRouter>
       <Routes>
         <Route element={<Sidebar />}>
-          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/" element={<Navigate to="/home" />} />
           {navbar.map(({ path, element, id, hide }) => {
             return !hide && <Route key={id} path={path} element={element} />;
           })}

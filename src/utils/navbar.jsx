@@ -22,13 +22,6 @@ const Tenth = lazy(() => import("../pages/Tenth"));
 export const navbar = [
   {
     id: useId,
-    element: <Login />,
-    path: "/login",
-    private: false,
-    hide: true,
-  },
-  {
-    id: useId,
     element: (
       <Suspense fallback={<Loading />}>
         <First />
@@ -123,7 +116,7 @@ export const navbar = [
     private: false,
     hidden: false,
   },
-
+  
   {
     id: useId,
     element: (
@@ -211,5 +204,12 @@ export const navbar = [
     path: "/tenth",
     private: false,
     hidden: false,
+  },
+  {
+    id: useId,
+    element: <Login />,
+    path: "/login",
+    private: false,
+    hide: false,
   },
 ];

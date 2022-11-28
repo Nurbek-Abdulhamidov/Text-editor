@@ -70,9 +70,22 @@ const Container = styled.div`
     opacity: 0.7;
   }
 
+  @media (max-width: 350px) {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
   img {
     position: relative;
     left: -90px;
+
+    @media (max-width: 380px) {
+      left: -70px;
+    }
+
+    @media (max-width: 330px) {
+      margin-bottom: 10px;
+    }
   }
 `;
 

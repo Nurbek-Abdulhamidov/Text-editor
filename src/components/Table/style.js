@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const TableWrap = styled.div`
+  width: 100%;
+  /* overflow: scroll; */
+`;
+
 export const TableDiv = styled.table`
   width: 100%;
   font-size: 16px;
@@ -27,6 +32,9 @@ export const Trow = styled.tr`
 
 export const Td = styled.td`
   padding: 5px 10px;
+  @media (max-width: 767px) {
+    width: 150px;
+  }
 `;
 
 export const BtnWrap = styled.div`
