@@ -5,10 +5,10 @@ import { GenericButton } from "../Generic";
 import Button from "../Generic/Button";
 import LocalizedModal from "../../components/Generic/Modal";
 
-import { TableDiv, Thead, Trow, Td, Tbody, BtnWrap } from './style';
-import { Pagination } from 'antd';
-import { UserContext } from '../../context/context';
-import { useConsulation } from '../../context/consultation';
+import { TableDiv, Thead, Trow, Td, Tbody, BtnWrap, TableWrap } from "./style";
+import { Pagination } from "antd";
+import { UserContext } from "../../context/context";
+import { useConsulation } from "../../context/consultation";
 
 const Table = ({
   data: info,
@@ -35,20 +35,19 @@ const Table = ({
   }, [data.length, pageSize]);
 
   const handlePaginationChange = (n) => {
-    dispatch({ type: 'page_number', payload: n });
+    dispatch({ type: "page_number", payload: n });
   };
   const onShowSizeChange = (current, size) => {
     dispatch({
-      type: 'page_number',
+      type: "page_number",
       payload: current,
     });
 
     dispatch({
-      type: 'per_page',
+      type: "per_page",
       payload: size,
     });
   };
-
 
   const getLogOut = () => {
     localStorage.removeItem("token");
@@ -71,15 +70,20 @@ const Table = ({
               index >= minIndex &&
               index < maxIndex && (
                 <Trow hover key={index}>
-                  {bodySample.map((sam) => (
-                    <Td> {item[sam] || "not given"} </Td>
+                  {bodySample.map((sam,index) => (
+                    <Td key={index}> {item[sam] || "not given"} </Td>
                   ))}
                   <Td>
                     {confirm ? (
-                      <LocalizedModal id={item?.manager_id} title={type} />
+                      <LocalizedModal
+                        key={index}
+                        id={item?.manager_id}
+                        title={type}
+                      />
                     ) : (
                       <Button
                         type="outlined"
+                        key={index}
                         onClick={() =>
                           navigate(
                             `/${param}:${item.id || item.consultation_id}`
@@ -87,7 +91,7 @@ const Table = ({
                         }
                         width={"100px"}
                       >
-                        탈퇴
+                        탈퇴f
                       </Button>
                     )}
                   </Td>
@@ -105,7 +109,7 @@ const Table = ({
         defaultPageSize={per_page}
         onChange={handlePaginationChange}
         defaultCurrent={per_page}
-        pageSizeOptions={['5', '10', '20', '50', '100']}
+        pageSizeOptions={["5", "10", "20", "50", "100"]}
       />
       <BtnWrap>
         <GenericButton
