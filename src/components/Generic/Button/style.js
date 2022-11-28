@@ -18,11 +18,10 @@ const getType = (type) => {
         color: "#FFFFFF",
         border: "none",
       };
-    case "common":
+    case "yellow":
       return {
-        background: "transparent",
-        color: "#FFFFFF",
-        border: "1px solid #fff",
+        background: "#FFDF00",
+        color: "#674D4D",
       };
     case "disable":
       return {
@@ -69,6 +68,24 @@ const Container = styled.div`
   :active {
     transform: scale(0.98);
     opacity: 0.7;
+  }
+
+  @media (max-width: 350px) {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  img {
+    position: relative;
+    left: -90px;
+
+    @media (max-width: 380px) {
+      left: -70px;
+    }
+
+    @media (max-width: 330px) {
+      margin-bottom: 10px;
+    }
   }
 `;
 

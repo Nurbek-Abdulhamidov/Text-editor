@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import secondData from '../../mock/secondData';
-import { GenericButton } from '../Generic';
-import Button from '../Generic/Button';
-import LocalizedModal from '../../components/Generic/Modal';
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import secondData from "../../mock/secondData";
+import { GenericButton } from "../Generic";
+import Button from "../Generic/Button";
+import LocalizedModal from "../../components/Generic/Modal";
 
-import { TableDiv, Thead, Trow, Td, Tbody, BtnWrap } from './style';
-import { Pagination } from 'antd';
-import { UserContext } from '../../context/context';
+import { TableDiv, Thead, Trow, Td, Tbody, BtnWrap, TableWrap } from "./style";
+import { Pagination } from "antd";
+import { UserContext } from "../../context/context";
 
 const Table = ({
   data: info,
@@ -40,15 +40,19 @@ const Table = ({
     setMinIndex((page - 1) * pageSize);
     setMaxIndex(page * pageSize);
   };
-  console.log(info, ';;;');
+
+  const getLogOut = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
 
   return (
-    <div>
+    <TableWrap>
       <TableDiv>
         <Thead>
           <Trow>
-            {header?.map((item) => (
-              <Td> {item} </Td>
+            {header?.map((item, index) => (
+              <Td key={index}> {item} </Td>
             ))}
           </Trow>
         </Thead>
@@ -59,7 +63,7 @@ const Table = ({
               index < maxIndex && (
                 <Trow hover key={index}>
                   {bodySample.map((sam) => (
-                    <Td> {item[sam] || 'not given'} </Td>
+                    <Td> {item[sam] || "not given"} </Td>
                   ))}
                   {/* <Td>{item.manager_id || 'not given'}</Td>
                   <Td>{item.manager_type || 'not given'}</Td>
@@ -71,13 +75,13 @@ const Table = ({
                       <LocalizedModal id={item?.manager_id} title={type} />
                     ) : (
                       <Button
-                        type='outlined'
+                        type="outlined"
                         onClick={() =>
                           navigate(
                             `/${param}:${item.id || item.consultation_id}`
                           )
                         }
-                        width={'100px'}
+                        width={"100px"}
                       >
                         탈퇴
                       </Button>
@@ -96,11 +100,15 @@ const Table = ({
         onChange={(page) => handleChange(page)}
       />
       <BtnWrap>
-        <GenericButton type='primary' width={'100px'}>
+        <GenericButton
+          onClick={() => getLogOut()}
+          type="primary"
+          width={"100px"}
+        >
           검색
         </GenericButton>
       </BtnWrap>
-    </div>
+    </TableWrap>
   );
 };
 
