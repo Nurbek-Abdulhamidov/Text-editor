@@ -10,6 +10,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
 
+  // get data from managers
   const getClick = async () => {
     const body = {
       search_scope: "all",

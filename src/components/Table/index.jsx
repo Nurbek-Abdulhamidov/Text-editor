@@ -7,7 +7,6 @@ import LocalizedModal from "../../components/Generic/Modal";
 
 import { TableDiv, Thead, Trow, Td, Tbody, BtnWrap, TableWrap } from "./style";
 import { Pagination } from "antd";
-import { UserContext } from "../../context/context";
 import { useConsulation } from "../../context/consultation";
 
 const Table = ({
@@ -19,7 +18,6 @@ const Table = ({
   bodySample,
   type,
 }) => {
-  const [users] = useContext(UserContext);
   const [{ per_page, page_number }, dispatch] = useConsulation();
   const pageSize = count;
   const [data, setData] = useState([]);
@@ -37,6 +35,7 @@ const Table = ({
   const handlePaginationChange = (n) => {
     dispatch({ type: "page_number", payload: n });
   };
+
   const onShowSizeChange = (current, size) => {
     dispatch({
       type: "page_number",
@@ -70,7 +69,7 @@ const Table = ({
               index >= minIndex &&
               index < maxIndex && (
                 <Trow hover key={index}>
-                  {bodySample.map((sam,index) => (
+                  {bodySample.map((sam, index) => (
                     <Td key={index}> {item[sam] || "not given"} </Td>
                   ))}
                   <Td>
