@@ -10,7 +10,6 @@ const Switcher = () => {
       payload: checked,
     });
   };
-  console.log(status);
   return <Switch onChange={onChange} />;
 };
 export default Switcher;

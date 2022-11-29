@@ -3,37 +3,27 @@ import { Select } from 'antd';
 import { Wrapper } from './style';
 import { useConsulation } from '../../../context/consultation';
 
-const Selection = ({ mr }) => {
+const Selection = ({ mr, opt, default: def, type }) => {
   const [{ order }, dispatch] = useConsulation();
   const handleChange = (value) => {
+    if (type == 'top') {
+      dispatch({ type: 'setScope', payload: value });
+    }
     dispatch({ type: 'order', payload: value });
   };
 
   return (
     <Wrapper>
       <Select
-        defaultValue='남은 일수 순'
+        defaultValue={def}
         style={{
           width: '150px',
           marginTop: () => (mr ? '10px' : ''),
         }}
         onChange={handleChange}
-        options={[
-          {
-            value: 'remaining_days',
-            label: '남은 일수 순',
-          },
-          {
-            value: 'update_time',
-            label: '등록일 순',
-          },
-          {
-            value: 'member_level',
-            label: '등급 순',
-          },
-        ]}
+        options={opt}
       />
     </Wrapper>
   );
 };
-export default memo( Selection);
+export default memo(Selection);

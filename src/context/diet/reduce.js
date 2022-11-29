@@ -3,12 +3,16 @@ export const initialState = {
   status: 'all', // unconsulted
   per_page: 10,
   page_number: 1,
-  keyword: '',
-  scope: 'all',
+  data: [],
 };
 
 export const reducer = (state, action) => {
   switch (action.type) {
+    case 'setData':
+      return {
+        ...state,
+        data: action.payload,
+      };
     case 'order':
       return {
         ...state,
@@ -23,16 +27,6 @@ export const reducer = (state, action) => {
       return {
         ...state,
         per_page: action.payload,
-      };
-    case 'setKey':
-      return {
-        ...state,
-        keyword: action.payload,
-      };
-    case 'setScope':
-      return {
-        ...state,
-        scope: action.payload,
       };
     case 'page_number':
       return {

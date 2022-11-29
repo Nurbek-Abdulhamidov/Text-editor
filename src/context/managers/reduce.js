@@ -1,38 +1,27 @@
 export const initialState = {
-  order: 'remaining_days',
-  status: 'all', // unconsulted
+  search_key: '',
   per_page: 10,
   page_number: 1,
-  keyword: '',
-  scope: 'all',
+  data: [],
 };
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case 'order':
+    case 'setData':
       return {
         ...state,
-        order: action.payload,
+        data: action.payload,
       };
-    case 'status':
+    case 'search_key':
       return {
         ...state,
-        status: action.payload,
+        search_key: action.payload,
       };
+
     case 'per_page':
       return {
         ...state,
         per_page: action.payload,
-      };
-    case 'setKey':
-      return {
-        ...state,
-        keyword: action.payload,
-      };
-    case 'setScope':
-      return {
-        ...state,
-        scope: action.payload,
       };
     case 'page_number':
       return {
