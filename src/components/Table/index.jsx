@@ -5,9 +5,17 @@ import { GenericButton } from "../Generic";
 import Button from "../Generic/Button";
 import LocalizedModal from "../../components/Generic/Modal";
 
-import { TableDiv, Thead, Trow, Td, Tbody, BtnWrap, TableWrap } from "./style";
+import {
+  TableDiv,
+  Thead,
+  Trow,
+  Td,
+  Tbody,
+  BtnWrap,
+  TableWrap,
+  PaginationWrap,
+} from "./style";
 import { Pagination } from "antd";
-import { UserContext } from "../../context/context";
 import { useConsulation } from "../../context/consultation";
 
 const Table = ({
@@ -19,7 +27,6 @@ const Table = ({
   bodySample,
   type,
 }) => {
-  const [users] = useContext(UserContext);
   const [{ per_page, page_number }, dispatch] = useConsulation();
   const pageSize = count;
   const [data, setData] = useState([]);
@@ -37,6 +44,7 @@ const Table = ({
   const handlePaginationChange = (n) => {
     dispatch({ type: "page_number", payload: n });
   };
+
   const onShowSizeChange = (current, size) => {
     dispatch({
       type: "page_number",
@@ -70,7 +78,7 @@ const Table = ({
               index >= minIndex &&
               index < maxIndex && (
                 <Trow hover key={index}>
-                  {bodySample.map((sam,index) => (
+                  {bodySample.map((sam, index) => (
                     <Td key={index}> {item[sam] || "not given"} </Td>
                   ))}
                   <Td>
@@ -91,7 +99,7 @@ const Table = ({
                         }
                         width={"100px"}
                       >
-                        탈퇴f
+                        탈퇴
                       </Button>
                     )}
                   </Td>
@@ -100,17 +108,19 @@ const Table = ({
           )}
         </Tbody>
       </TableDiv>
-      <Pagination
-        onShowSizeChange={onShowSizeChange}
-        showSizeChanger
-        pageSize={per_page}
-        current={page_number}
-        total={data.length}
-        defaultPageSize={per_page}
-        onChange={handlePaginationChange}
-        defaultCurrent={per_page}
-        pageSizeOptions={["5", "10", "20", "50", "100"]}
-      />
+      <PaginationWrap>
+        <Pagination
+          onShowSizeChange={onShowSizeChange}
+          showSizeChanger
+          pageSize={per_page}
+          current={page_number}
+          total={data.length}
+          defaultPageSize={per_page}
+          onChange={handlePaginationChange}
+          defaultCurrent={per_page}
+          pageSizeOptions={["5", "10", "20", "50", "100"]}
+        />
+      </PaginationWrap>
       <BtnWrap>
         <GenericButton
           onClick={() => getLogOut()}
