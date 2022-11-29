@@ -5,7 +5,16 @@ import { GenericButton } from "../Generic";
 import Button from "../Generic/Button";
 import LocalizedModal from "../../components/Generic/Modal";
 
-import { TableDiv, Thead, Trow, Td, Tbody, BtnWrap, TableWrap } from "./style";
+import {
+  TableDiv,
+  Thead,
+  Trow,
+  Td,
+  Tbody,
+  BtnWrap,
+  TableWrap,
+  PaginationWrap,
+} from "./style";
 import { Pagination } from "antd";
 import { useConsulation } from "../../context/consultation";
 
@@ -99,17 +108,19 @@ const Table = ({
           )}
         </Tbody>
       </TableDiv>
-      <Pagination
-        onShowSizeChange={onShowSizeChange}
-        showSizeChanger
-        pageSize={per_page}
-        current={page_number}
-        total={data.length}
-        defaultPageSize={per_page}
-        onChange={handlePaginationChange}
-        defaultCurrent={per_page}
-        pageSizeOptions={["5", "10", "20", "50", "100"]}
-      />
+      <PaginationWrap>
+        <Pagination
+          onShowSizeChange={onShowSizeChange}
+          showSizeChanger
+          pageSize={per_page}
+          current={page_number}
+          total={data.length}
+          defaultPageSize={per_page}
+          onChange={handlePaginationChange}
+          defaultCurrent={per_page}
+          pageSizeOptions={["5", "10", "20", "50", "100"]}
+        />
+      </PaginationWrap>
       <BtnWrap>
         <GenericButton
           onClick={() => getLogOut()}

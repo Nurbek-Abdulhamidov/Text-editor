@@ -42,3 +42,15 @@ export const BtnWrap = styled.div`
   bottom: 20px;
   right: 20px;
 `;
+
+export const PaginationWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  ul {
+    margin-right: 250px;
+  }
+`;
