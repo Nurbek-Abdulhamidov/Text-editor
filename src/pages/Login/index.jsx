@@ -3,7 +3,7 @@ import { Container, Content, Test, Wrapper } from "./style";
 import loginImg from "../../assets/images/loginImg.png";
 import Input from "../../components/Generic/Input";
 import Button from "../../components/Generic/Button";
-import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+// import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { message } from "antd";
@@ -95,13 +95,9 @@ const Login = () => {
                 />
                 <button onClick={togglePassword}>
                   {passwordType === "password" ? (
-                    <i>
-                      <AiFillEyeInvisible />
-                    </i>
+                    <i>{/* <AiFillEyeInvisible /> */}</i>
                   ) : (
-                    <i>
-                      <AiFillEye />
-                    </i>
+                    <i>{/* <AiFillEye /> */}</i>
                   )}
                 </button>
               </Test>
