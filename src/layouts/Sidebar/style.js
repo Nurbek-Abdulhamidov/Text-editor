@@ -70,8 +70,12 @@ export const BtnWrap = styled.div`
   position: absolute;
   bottom: 20px;
   width: 90%;
-  button {
+  background-color: #0061df;
+  border-radius: 5px;
+  div {
+    border-radius: 5px;
     width: 100%;
+    color: #fff;
     height: 40px;
   }
 `;

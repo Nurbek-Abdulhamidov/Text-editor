@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import { Modal } from 'antd';
-import axios from 'axios';
-import { Container, ModalWrap } from './style';
-import Input from '../Input';
-import Button from '../Button';
+import React, { useState } from "react";
+import { Modal } from "antd";
+import axios from "axios";
+import { Container, ModalWrap } from "./style";
+import Input from "../Input";
+import Button from "../Button";
+import ChangePsw from "../ChangePassword";
 
-export const LocalizedModal = ({ title, id }) => {
+export const LocalizedModal = ({ title, id, removeBtn, ok }) => {
   const [open, setOpen] = useState(false);
   const { REACT_APP_BASE_URL: url } = process.env;
-  let token = localStorage.getItem('token');
+  let token = localStorage.getItem("token");
 
   const showModal = () => {
     setOpen(true);
@@ -41,45 +42,49 @@ export const LocalizedModal = ({ title, id }) => {
   };
   return (
     <Container>
-      <Button width={'100px'} type='outlined' onClick={showModal}>
+      <Button width={"100px"} type="outlined" onClick={showModal}>
         {title}
       </Button>
       <Modal
         open={open}
         onOk={handleOk}
         onCancel={hideModal}
-        okText='예'
-        cancelText='아니요'
+        okText={ok}
+        cancelText="아니요"
         cancelButtonProps={
-          title === '검색'
+          removeBtn
             ? {
                 style: {
-                  display: 'none',
+                  display: "none",
                 },
               }
             : {
                 style: {
-                  width: '100%',
+                  width: "100%",
                 },
               }
         }
         okButtonProps={{
           style: {
-            width: '100%',
-            margin: 'auto',
+            width: "100%",
+            margin: "auto",
           },
         }}
       >
         <ModalWrap>
-          {title === '검색' ? (
-            <form action=''>
+          {title === "비밀번호 변경하기" ? (
+            <div>
+              <ChangePsw />
+            </div>
+          ) : title === "검색" ? (
+            <form action="">
               <label>ID</label>
-              <Input placeholder='id' />
+              <Input placeholder="id" />
               <label>전화번호</label>
-              <Input placeholder='전화번호' />
+              <Input placeholder="전화번호" />
             </form>
           ) : (
-            <p className='text'>상담 내용을 업로드하시겠습니까?</p>
+            <p className="text">상담 내용을 업로드하시겠습니까?</p>
           )}
         </ModalWrap>
       </Modal>

@@ -54,6 +54,8 @@ const Home = () => {
           bodySample={bodySample}
           data={data}
           type="탈퇴"
+          ok="등록하기"
+          removeBtn={true}
           param="second"
           confirm
         />
