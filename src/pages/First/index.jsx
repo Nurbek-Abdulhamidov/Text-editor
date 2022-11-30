@@ -9,12 +9,12 @@ let token = localStorage.getItem('token');
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
-  const [{ data, search_key, size, page }, dispatch] = useManagers();
+  const [{ data, key, size, page }, dispatch] = useManagers();
   console.log(size, 'size');
   const getClick = async () => {
     const body = {
       search_scope: 'all',
-      search_keyword: search_key,
+      search_keyword: key,
     };
     try {
       // setLoading(true);
@@ -32,7 +32,7 @@ const Home = () => {
 
   useEffect(() => {
     getClick();
-  }, [search_key, size, page]);
+  }, [key, size, page]);
 
   let bodySample = [
     'manager_id',
@@ -46,7 +46,7 @@ const Home = () => {
   return (
     <div>
       <div>
-        <Navbar type='manager' />
+        <Navbar type='manager' dispatch={dispatch} />
       </div>
       <div>
         <Table
