@@ -74,7 +74,6 @@ const Login = () => {
               <label>ID</label>
               <Input
                 onChange={onChange}
-                placeholder="이메일을 입력해주세요."
                 name="manager_login"
                 type="email"
                 mb="15"
@@ -86,7 +85,6 @@ const Login = () => {
                 <Input
                   onChange={onChange}
                   onClick={handlePasswordChange}
-                  placeholder="비밀번호를 입력해주세요."
                   name="manager_password"
                   type={passwordType}
                   value={passwordInput}
