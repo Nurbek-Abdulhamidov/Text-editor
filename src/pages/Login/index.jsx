@@ -47,7 +47,7 @@ const Login = () => {
         .then((res) => res.json())
         .then((res) => {
           if (res?.data.manager_access_token) {
-            navigate("/home");
+            navigate("/manager-management");
             info(res.message);
             localStorage.setItem("token", res?.data.manager_access_token);
           }

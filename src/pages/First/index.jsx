@@ -50,13 +50,13 @@ const Home = () => {
       <div>
         <Table
           header={header}
-          count={8}
+          count={9}
           bodySample={bodySample}
           data={data}
           type="탈퇴"
+          param="관리자관리"
           ok="등록하기"
           removeBtn={true}
-          param="관리자관리"
           confirm
         />
       </div>

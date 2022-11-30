@@ -51,7 +51,6 @@ const Eighth = () => {
     "등록일",
     "상세 정보",
   ];
-  console.log(data);
   return (
     <div>
       <Navbar select />

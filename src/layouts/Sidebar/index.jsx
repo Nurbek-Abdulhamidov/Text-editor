@@ -22,7 +22,7 @@ const Sidebar = () => {
         {localStorage.getItem("token") ? (
           <Container>
             <Aside>
-              <Section logo onClick={() => navigate("/home")}>
+              <Section logo onClick={() => navigate("/관리자관리")}>
                 <Logo>
                   <div>나의 건강 주치의</div>
                 </Logo>
@@ -32,7 +32,7 @@ const Sidebar = () => {
                 {navbar.map(({ path, title, hidden, text, id }, index) => {
                   return !hidden && id !== 6 ? (
                     <Link
-                      className={({ isActive }) => isActive && "active"}
+                      className={({ isActive }) => isActive  && "active"}
                       key={index}
                       to={path}
                     >

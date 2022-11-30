@@ -29,7 +29,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "관리자 관리",
-    path: "/관리자관리",
+    path: "/manager-management",
     private: false,
     hidden: false,
   },
@@ -41,7 +41,7 @@ export const navbar = [
       </Suspense>
     ),
     title: " 국가 건강검진 상담 ",
-    path: "/국가건강검진상담",
+    path: "/consultation",
     private: false,
     hidden: false,
   },
@@ -53,7 +53,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "Secondpage ",
-    path: "/국가건강검진상담:id",
+    path: "/consultation:id",
     private: false,
     hidden: true,
   },
@@ -65,7 +65,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "종합 건강검진 상담 ",
-    path: "/종합건강검진상담",
+    path: "/comprehensive",
     private: false,
     hidden: false,
   },
@@ -77,7 +77,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "종합 건강검진 상담 ",
-    path: "/종합건강검진상담:id",
+    path: "/comprehensive:id",
     private: false,
     hidden: true,
   },
@@ -89,7 +89,7 @@ export const navbar = [
       </Suspense>
     ),
     title: " 맞춤형 상담 ",
-    path: "/맞춤형상담",
+    path: "/customized-consultation",
     private: false,
     hidden: false,
   },
@@ -101,7 +101,7 @@ export const navbar = [
       </Suspense>
     ),
     title: " 맞춤형 상담 ",
-    path: "/맞춤형상담:id",
+    path: "/customized-consultation:id",
     private: false,
     hidden: true,
   },
@@ -113,7 +113,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "맞춤형 식이&운동 ",
-    path: "/맞춤형식이&운동",
+    path: "/customized-diet&exercise",
     private: false,
     hidden: false,
   },
@@ -126,7 +126,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "맞춤형 식이&운동 ",
-    path: "/맞춤형식이&운동:id",
+    path: "/customized-diet&exercise:id",
     private: false,
     hidden: true,
   },
@@ -142,7 +142,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "공지사항",
-    path: "/공지사항",
+    path: "/notifications",
     private: false,
     hidden: false,
   },
@@ -154,7 +154,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "Seventhpage",
-    path: "/공지사항:id",
+    path: "/notifications:id",
     private: false,
     hidden: true,
   },
@@ -190,7 +190,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "회원관리",
-    path: "/회원관리",
+    path: "/member-management",
     private: false,
     hidden: false,
   },
@@ -202,7 +202,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "회원관리",
-    path: "/회원관리:id",
+    path: "/member-management:id",
     private: false,
     hidden: true,
   },
@@ -214,7 +214,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "푸쉬 알림 보내기",
-    path: "/푸쉬알림보내기",
+    path: "/send-notification",
     private: false,
     hidden: false,
   },

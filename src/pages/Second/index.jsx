@@ -57,12 +57,12 @@ const Second = () => {
       </div>
       <div>
         <Table
-          count={8}
           header={header}
-          param='국가건강검진상담'
-          data={data}
+          count={8}
           bodySample={bodySample}
+          data={data}
           type='작성 상태'
+          param='국가건강검진상담'
         />
       </div>
     </div>
