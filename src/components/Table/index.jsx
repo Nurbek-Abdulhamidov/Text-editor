@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import secondData from "../../mock/secondData";
-import { GenericButton } from "../Generic";
-import Button from "../Generic/Button";
-import LocalizedModal from "../../components/Generic/Modal";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { GenericButton } from '../Generic';
+import Button from '../Generic/Button';
+import LocalizedModal from '../../components/Generic/Modal';
 
 import {
   TableDiv,
@@ -14,56 +13,48 @@ import {
   BtnWrap,
   TableWrap,
   PaginationWrap,
-} from "./style";
-import { Pagination } from "antd";
-import { useConsulation } from "../../context/consultation";
+} from './style';
+import { Pagination } from 'antd';
+import { useConsulation } from '../../context/consultation';
 
 const Table = ({
-  data: info,
+  data,
   param,
   confirm,
-  count,
   header,
   bodySample,
   type,
-  ok,
-  removeBtn,
+  dispatch,
+  page,
+  size,
 }) => {
-  const [{ per_page, page_number }, dispatch] = useConsulation();
-  const pageSize = count;
-  const [data, setData] = useState([]);
+  // const [{ data, size, page }, dispatch] = useConsulation();
 
-  const [minIndex, setMinIndex] = useState(0);
-  const [maxIndex, setMaxIndex] = useState();
+  // const [minIndex, setMinIndex] = useState(0);
+  // const [maxIndex, setMaxIndex] = useState();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setData(secondData);
-    setMinIndex(0);
-    setMaxIndex(pageSize);
-  }, [data.length, pageSize]);
-
   const handlePaginationChange = (n) => {
-    dispatch({ type: "page_number", payload: n });
+    dispatch({ type: 'setPage', payload: n });
   };
 
   const onShowSizeChange = (current, size) => {
+    console.log(current, size);
     dispatch({
-      type: "page_number",
+      type: 'setPage',
       payload: current,
     });
 
     dispatch({
-      type: "per_page",
+      type: 'setSize',
       payload: size,
     });
   };
 
   const getLogOut = () => {
-    localStorage.removeItem("token");
-    navigate("/login");
+    localStorage.removeItem('token');
+    navigate('/login');
   };
-
   return (
     <TableWrap>
       <TableDiv>
@@ -75,63 +66,53 @@ const Table = ({
           </Trow>
         </Thead>
         <Tbody>
-          {info?.map(
-            (item, index) =>
-              index >= minIndex &&
-              index < maxIndex && (
-                <Trow hover key={index}>
-                  {bodySample.map((sam, index) => (
-                    <Td key={index} styl>
-                      {item[sam] || "not given"}{" "}
-                    </Td>
-                  ))}
-                  <Td>
-                    {confirm ? (
-                      <LocalizedModal
-                        key={index}
-                        removeBtn={removeBtn}
-                        id={item?.manager_id}
-                        title={type}
-                        ok={ok}
-                      />
-                    ) : (
-                      <Button
-                        type="outlined"
-                        key={index}
-                        onClick={() =>
-                          navigate(
-                            `/${param}:${item.id || item.consultation_id}`
-                          )
-                        }
-                        width={"100px"}
-                      >
-                        탈퇴
-                      </Button>
-                    )}
-                  </Td>
-                </Trow>
-              )
-          )}
+          {data?.map((item, index) => (
+            <Trow hover key={index}>
+              {bodySample.map((sam, index) => (
+                <Td key={index}> {item[sam] || 'not given'} </Td>
+              ))}
+              <Td>
+                {confirm ? (
+                  <LocalizedModal
+                    key={index}
+                    id={item?.manager_id}
+                    title={type}
+                  />
+                ) : (
+                  <Button
+                    type='outlined'
+                    key={index}
+                    onClick={() =>
+                      navigate(`/${param}:${item.id || item.consultation_id}`)
+                    }
+                    width={'100px'}
+                  >
+                    탈퇴
+                  </Button>
+                )}
+              </Td>
+            </Trow>
+          ))}
         </Tbody>
       </TableDiv>
       <PaginationWrap>
         <Pagination
-          onShowSizeChange={onShowSizeChange}
+          defaultCurrent={page || 1}
+          current={page || 1}
+          total={data?.total || 10}
+          defaultPageSize={size}
           showSizeChanger
-          pageSize={per_page}
-          current={page_number}
-          total={data.length}
-          defaultPageSize={per_page}
+          onShowSizeChange={onShowSizeChange}
+          pageSizeOptions={['5', '10', '20', '50', '100']}
+          pageSize={size || 10}
           onChange={handlePaginationChange}
-          defaultCurrent={per_page}
-          pageSizeOptions={["5", "10", "20", "50", "100"]}
         />
       </PaginationWrap>
       <BtnWrap>
         <GenericButton
           onClick={() => getLogOut()}
-          type="primary"
-          width={"100px"}
+          type='primary'
+          width={'100px'}
         >
           검색
         </GenericButton>

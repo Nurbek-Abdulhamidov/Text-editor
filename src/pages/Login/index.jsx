@@ -1,31 +1,31 @@
-import React from "react";
-import { Container, Content, Test, Wrapper } from "./style";
-import loginImg from "../../assets/images/loginImg.png";
-import Input from "../../components/Generic/Input";
-import Button from "../../components/Generic/Button";
-import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { message } from "antd";
+import React from 'react';
+import { Container, Content, Test, Wrapper } from './style';
+import loginImg from '../../assets/images/loginImg.png';
+import Input from '../../components/Generic/Input';
+import Button from '../../components/Generic/Button';
+// import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { message } from 'antd';
 
 const { REACT_APP_BASE_URL: url } = process.env;
 
 const Login = () => {
   const navigate = useNavigate();
   const [body, setBody] = useState({});
-  const [passwordType, setPasswordType] = useState("password");
-  const [passwordInput, setPasswordInput] = useState("");
+  const [passwordType, setPasswordType] = useState('password');
+  const [passwordInput, setPasswordInput] = useState('');
 
   // Show password and hide
   const handlePasswordChange = (evnt) => {
     setPasswordInput(evnt.target.value);
   };
   const togglePassword = () => {
-    if (passwordType === "password") {
-      setPasswordType("text");
+    if (passwordType === 'password') {
+      setPasswordType('text');
       return;
     }
-    setPasswordType("password");
+    setPasswordType('password');
   };
 
   const onChange = ({ target: { value, name } }) => {
@@ -38,22 +38,22 @@ const Login = () => {
   const onSubmit = async () => {
     try {
       await fetch(`${url}/admin/login`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(body),
       })
         .then((res) => res.json())
         .then((res) => {
           if (res?.data.manager_access_token) {
-            navigate("/home");
+            navigate('/home');
             info(res.message);
-            localStorage.setItem("token", res?.data.manager_access_token);
+            localStorage.setItem('token', res?.data.manager_access_token);
           }
         });
     } catch (error) {
-      warning("Incorrect password. Please try again");
+      warning('Incorrect password. Please try again');
     }
   };
 
@@ -69,15 +69,15 @@ const Login = () => {
       <Wrapper>
         <Container>
           <Content>
-            <img src={loginImg} alt="" />
+            <img src={loginImg} alt='' />
             <div>
               <label>ID</label>
               <Input
                 onChange={onChange}
-                placeholder="이메일을 입력해주세요."
-                name="manager_login"
-                type="email"
-                mb="15"
+                placeholder='이메일을 입력해주세요.'
+                name='manager_login'
+                type='email'
+                mb='15'
               />
             </div>
             <div>
@@ -86,27 +86,23 @@ const Login = () => {
                 <Input
                   onChange={onChange}
                   onClick={handlePasswordChange}
-                  placeholder="비밀번호를 입력해주세요."
-                  name="manager_password"
+                  placeholder='비밀번호를 입력해주세요.'
+                  name='manager_password'
                   type={passwordType}
                   value={passwordInput}
-                  class="form-control"
-                  mb="15"
+                  class='form-control'
+                  mb='15'
                 />
                 <button onClick={togglePassword}>
-                  {passwordType === "password" ? (
-                    <i>
-                      <AiFillEyeInvisible />
-                    </i>
+                  {passwordType === 'password' ? (
+                    <i>{/* <AiFillEyeInvisible /> */}</i>
                   ) : (
-                    <i>
-                      <AiFillEye />
-                    </i>
+                    <i>{/* <AiFillEye /> */}</i>
                   )}
                 </button>
               </Test>
             </div>
-            <Button mb="20" type="primary" onClick={onSubmit}>
+            <Button mb='20' type='primary' onClick={onSubmit}>
               로그인
             </Button>
           </Content>
