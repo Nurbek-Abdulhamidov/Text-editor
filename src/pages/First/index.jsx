@@ -8,13 +8,13 @@ const { REACT_APP_BASE_URL: url } = process.env;
 let token = localStorage.getItem("token");
 
 const Home = () => {
-  const [ setLoading] = useState(false);
- 
+  const [setLoading] = useState(false);
+
   const [{ data, key, size, page }, dispatch] = useManagers();
 
   const getClick = async () => {
     const body = {
-      search_scope: 'all',
+      search_scope: "all",
       search_keyword: key,
     };
     try {
@@ -47,11 +47,11 @@ const Home = () => {
   return (
     <div>
       <div>
- 
-        <Navbar type='manager' dispatch={dispatch} />
+        <Navbar type="manager" dispatch={dispatch} />
       </div>
       <div>
         <Table
+          getClick={getClick}
           header={header}
           count={9}
           bodySample={bodySample}

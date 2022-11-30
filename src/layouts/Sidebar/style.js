@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -19,6 +20,7 @@ export const Aside = styled.aside`
   flex: 1;
   padding: 10px;
   height: 100vh;
+
 `;
 
 export const Section = styled.section`

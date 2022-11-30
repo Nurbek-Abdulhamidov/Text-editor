@@ -27,6 +27,7 @@ const Table = ({
   dispatch,
   page,
   size,
+  getClick,
 }) => {
   // const [{ data, size, page }, dispatch] = useConsulation();
 
@@ -74,6 +75,7 @@ const Table = ({
               <Td>
                 {confirm ? (
                   <LocalizedModal
+                    getClick={getClick}
                     key={index}
                     id={item?.manager_id}
                     title={type}
@@ -83,7 +85,7 @@ const Table = ({
                     type="outlined"
                     key={index}
                     onClick={() =>
-                      navigate(`/${param}:${item.id || item.consultation_id}`)
+                      navigate(`/${param}/${item?.id || item?.consultation_id}`)
                     }
                     width={"100px"}
                   >

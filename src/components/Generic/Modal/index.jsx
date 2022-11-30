@@ -6,7 +6,7 @@ import Input from "../Input";
 import Button from "../Button";
 import ChangePsw from "../ChangePassword";
 
-export const LocalizedModal = ({ title, id, removeBtn, ok }) => {
+export const LocalizedModal = ({ title, id, removeBtn, ok, getClick }) => {
   const [open, setOpen] = useState(false);
   const { REACT_APP_BASE_URL: url } = process.env;
   let token = localStorage.getItem("token");
@@ -37,6 +37,7 @@ export const LocalizedModal = ({ title, id, removeBtn, ok }) => {
   };
 
   const handleOk = () => {
+    getClick && getClick();
     getById();
     setOpen(false);
   };
