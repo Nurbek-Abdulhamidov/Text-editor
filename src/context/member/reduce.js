@@ -18,15 +18,15 @@ export const reducer = (state, action) => {
         key: action.payload,
       };
 
-    case 'setSize':
-      return {
-        ...state,
-        size: action.payload,
-      };
     case 'setPage':
       return {
         ...state,
         page: action.payload,
+      };
+    case 'setSize':
+      return {
+        ...state,
+        size: action.payload,
       };
     default:
       return state;

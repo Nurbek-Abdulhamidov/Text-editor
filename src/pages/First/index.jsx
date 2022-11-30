@@ -9,7 +9,8 @@ let token = localStorage.getItem('token');
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
-  const [{ data, search_key }, dispatch] = useManagers();
+  const [{ data, search_key, size, page }, dispatch] = useManagers();
+  console.log(size, 'size');
   const getClick = async () => {
     const body = {
       search_scope: 'all',
@@ -31,7 +32,7 @@ const Home = () => {
 
   useEffect(() => {
     getClick();
-  }, [search_key]);
+  }, [search_key, size, page]);
 
   let bodySample = [
     'manager_id',
@@ -40,6 +41,7 @@ const Home = () => {
     'manager_phone_number',
     'manager_status',
   ];
+
   let header = ['번호', '등급', '관리자 ID', '연락처', '가입일', '관리'];
   return (
     <div>
@@ -55,6 +57,9 @@ const Home = () => {
           type='탈퇴'
           param='first'
           confirm
+          dispatch={dispatch}
+          size={size}
+          page={page}
         />
       </div>
     </div>

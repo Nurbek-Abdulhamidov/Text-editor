@@ -23,7 +23,7 @@ const Selector = () => {
           <label>작성 필요만 보기</label>
           <Switcher />
           <div>
-            <Selection opt={opt} default='등록일 순' />
+            <Selection opt={opt} default='등록일 순' type='bottom' />
           </div>
         </Right>
       </Container>

@@ -5,19 +5,11 @@ import Selection from '../Generic/Select';
 import LocalizedModal from '../Generic/Modal';
 import Button from '../Generic/Button';
 import Input from '../Generic/Input';
-import { useManagers } from '../../context/managers';
-import { useConsulation } from '../../context/consultation';
 
-const Navbar = ({ select, send, type }) => {
-  const [{}, dispatch] = useManagers();
-  const [{}, patch] = useConsulation();
+const Navbar = ({ select, send, dispatch }) => {
   const handleChange = ({ target }) => {
-    if (type == 'manager') {
-      dispatch({ type: 'search_key', payload: target.value });
-    }
-    if ((type = 'consulation')) {
-      patch({ type: 'setKey', payload: target.value });
-    }
+    dispatch({ type: 'setKey', payload: target.value });
+    console.log(target.value, 'c');
   };
   let opt = [
     {
@@ -48,7 +40,7 @@ const Navbar = ({ select, send, type }) => {
         )}
       </Left>
       <Right>
-        {select ? <Selection opt={opt} default='전체' /> : ''}
+        {select ? <Selection opt={opt} default='전체' type='top' /> : ''}
         {send ? '' : <Input onChange={handleChange} />}
 
         {send ? (

@@ -1,21 +1,21 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar";
-import Table from "../../components/Table";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import Navbar from '../../components/Navbar';
+import Table from '../../components/Table';
+import { useMember } from '../../context/member';
 
 const { REACT_APP_BASE_URL: url } = process.env;
-let token = localStorage.getItem("token");
+let token = localStorage.getItem('token');
 
 const Nineth = () => {
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
-
+  const [{ data, page, size, key }, dispatch] = useMember();
   // get data from managers
   const getClick = async () => {
     const body = {
-      search_keyword: "jobir",
-      per_page: 10,
-      page_number: 1,
+      search_keyword: key,
+      per_page: size,
+      page_number: page,
     };
     try {
       setLoading(true);
@@ -24,7 +24,7 @@ const Nineth = () => {
           Authentication: token,
         },
       });
-      setData(data?.data);
+      dispatch({ type: 'setData', payload: data?.data });
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -33,26 +33,27 @@ const Nineth = () => {
 
   useEffect(() => {
     getClick();
-  }, []);
+  }, [page, size, key]);
 
   let bodySample = [
-    "member_phone_number",
-    "member_name",
-    "member_email",
-    "member_gender",
-    "member_birthdate",
+    'member_phone_number',
+    'member_name',
+    'member_email',
+    'member_gender',
+    'member_birthdate',
   ];
-  let header = ["번호", "이름", "이메일", "성별", "생년월일", "상세 정보"];
-  console.log(data);
+  let header = ['번호', '이름', '이메일', '성별', '생년월일', '상세 정보'];
   return (
     <div>
-      <Navbar select />
+      <Navbar select dispatch={dispatch} />
       <Table
         header={header}
         bodySample={bodySample}
-        count={8}
-        param="nineth"
+        param='nineth'
         data={data}
+        dispatch={dispatch}
+        size={size}
+        page={page}
       />
     </div>
   );

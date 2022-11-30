@@ -7,10 +7,9 @@ import { useConsulation } from '../../context/consultation';
 
 const Second = () => {
   const { REACT_APP_BASE_URL: url } = process.env;
-  const [{ order, status, per_page, page_number, keyword, scope }] =
+  const [{ data, order, status, size, page, keyword, scope }, dispatch] =
     useConsulation();
   let token = localStorage.getItem('token');
-  const [data, setData] = useState([]);
 
   const getClick = async () => {
     const body = {
@@ -19,8 +18,8 @@ const Second = () => {
       search_keyword: keyword,
       consultation_status: status,
       order_by: order,
-      per_page: per_page || data?.length,
-      page_number: page_number,
+      per_page: size,
+      page_number: page,
     };
     try {
       const { data } = await axios.post(`${url}/admin/consultations`, body, {
@@ -28,12 +27,12 @@ const Second = () => {
           Authentication: token,
         },
       });
-      setData(data?.data);
+      dispatch({ type: 'setData', payload: data?.data });
     } catch (error) {}
   };
   useEffect(() => {
     getClick();
-  }, [order, status, per_page, page_number, keyword, scope]);
+  }, [order, status, page, size, keyword, scope]);
   let header = [
     '번호',
     '작성자  ID',
@@ -57,12 +56,15 @@ const Second = () => {
       </div>
       <div>
         <Table
-          count={8}
+          // count={8}
           header={header}
           param='second'
           data={data}
           bodySample={bodySample}
           type='작성 상태'
+          size={size}
+          page={page}
+          dispatch={dispatch}
         />
       </div>
     </div>

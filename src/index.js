@@ -7,6 +7,7 @@ import UsersList from './context/context';
 import { ConsulationPovider } from './context/consultation';
 import { DietPovider } from './context/diet';
 import { ManagersPovider } from './context/managers';
+import { MemberPovider } from './context/member';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -16,7 +17,9 @@ root.render(
       <ConsulationPovider>
         <DietPovider>
           <ManagersPovider>
-            <Root />
+            <MemberPovider>
+              <Root />
+            </MemberPovider>
           </ManagersPovider>
         </DietPovider>
       </ConsulationPovider>

@@ -5,11 +5,14 @@ import { useConsulation } from '../../../context/consultation';
 
 const Selection = ({ mr, opt, default: def, type }) => {
   const [{ order }, dispatch] = useConsulation();
+
   const handleChange = (value) => {
     if (type == 'top') {
       dispatch({ type: 'setScope', payload: value });
+    } else if (type == 'bottom') {
+      dispatch({ type: 'setOrder', payload: value });
     }
-    dispatch({ type: 'order', payload: value });
+    // dispatch({ type: 'order', payload: value });
   };
 
   return (
