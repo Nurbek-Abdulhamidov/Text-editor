@@ -26,6 +26,8 @@ const Table = ({
   header,
   bodySample,
   type,
+  ok,
+  removeBtn,
 }) => {
   const [{ per_page, page_number }, dispatch] = useConsulation();
   const pageSize = count;
@@ -79,14 +81,18 @@ const Table = ({
               index < maxIndex && (
                 <Trow hover key={index}>
                   {bodySample.map((sam, index) => (
-                    <Td key={index}> {item[sam] || "not given"} </Td>
+                    <Td key={index} styl>
+                      {item[sam] || "not given"}{" "}
+                    </Td>
                   ))}
                   <Td>
                     {confirm ? (
                       <LocalizedModal
                         key={index}
+                        removeBtn={removeBtn}
                         id={item?.manager_id}
                         title={type}
+                        ok={ok}
                       />
                     ) : (
                       <Button

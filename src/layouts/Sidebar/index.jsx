@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import Button from "../../components/Generic/Button";
+import LocalizedModal from "../../components/Generic/Modal";
 import Login from "../../pages/Login";
 import { navbar } from "../../utils/navbar";
 import {
@@ -45,7 +46,7 @@ const Sidebar = () => {
                   );
                 })}
                 <BtnWrap>
-                  <Button type="primary">비밀번호 변경하기</Button>
+                  <LocalizedModal ok="변경하기" removeBtn={true} title={"비밀번호 변경하기"} />
                 </BtnWrap>
               </Section>
             </Aside>
