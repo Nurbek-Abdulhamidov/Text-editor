@@ -7,7 +7,7 @@ import { useConsulation } from '../../context/consultation';
 
 const Second = () => {
   const { REACT_APP_BASE_URL: url } = process.env;
-  const [{ data, order, status, size, page, keyword, scope }, dispatch] =
+  const [{ data, order, status, size, page, key, scope }, dispatch] =
     useConsulation();
   let token = localStorage.getItem('token');
 
@@ -15,7 +15,7 @@ const Second = () => {
     const body = {
       consultation_type: 'comprehensive',
       search_scope: scope,
-      search_keyword: keyword,
+      search_keyword: key,
       consultation_status: status,
       order_by: order,
       per_page: size,
@@ -32,7 +32,7 @@ const Second = () => {
   };
   useEffect(() => {
     getClick();
-  }, [order, status, page, size, keyword, scope]);
+  }, [order, status, page, size, key, scope]);
   let header = [
     '번호',
     '작성자  ID',
@@ -43,7 +43,7 @@ const Second = () => {
   ];
   let bodySample = [
     'consultation_id',
-    'member_id',
+    'manager_id',
     'member_level',
     'update_time',
     'remaining_days',
@@ -51,7 +51,7 @@ const Second = () => {
   return (
     <div>
       <div>
-        <Navbar select type='consulation' />
+        <Navbar select type='consulation' dispatch={dispatch} />
         <Selector />
       </div>
       <div>
