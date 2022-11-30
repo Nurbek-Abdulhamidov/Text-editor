@@ -56,7 +56,7 @@ const Home = () => {
           type="탈퇴"
           ok="등록하기"
           removeBtn={true}
-          param="second"
+          param="관리자관리"
           confirm
         />
       </div>

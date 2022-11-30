@@ -59,7 +59,7 @@ const Second = () => {
         <Table
           count={8}
           header={header}
-          param='second'
+          param='국가건강검진상담'
           data={data}
           bodySample={bodySample}
           type='작성 상태'

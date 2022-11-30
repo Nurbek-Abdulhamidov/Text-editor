@@ -15,6 +15,7 @@ const FifthPage = lazy(() => import("../pages/FifthPage"));
 const Seventh = lazy(() => import("../pages/Seven"));
 const SeventhPage = lazy(() => import("../pages/SeventhPage"));
 const Eighth = lazy(() => import("../pages/Eighth"));
+const EighthPage = lazy(() => import("../pages/EighthPage"));
 const Nineth = lazy(() => import("../pages/Nineth"));
 const NinethPage = lazy(() => import("../pages/NinethPage"));
 const Tenth = lazy(() => import("../pages/Tenth"));
@@ -64,7 +65,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "종합 건강검진 상담 ",
-    path: "/종합 건강검진 상담",
+    path: "/종합건강검진상담",
     private: false,
     hidden: false,
   },
@@ -100,7 +101,7 @@ export const navbar = [
       </Suspense>
     ),
     title: " 맞춤형 상담 ",
-    path: "/맞춤형상담 :id",
+    path: "/맞춤형상담:id",
     private: false,
     hidden: true,
   },
@@ -173,6 +174,18 @@ export const navbar = [
     id: useId,
     element: (
       <Suspense fallback={<Loading />}>
+        <EighthPage />
+      </Suspense>
+    ),
+    title: "FAQ",
+    path: "/faq:id",
+    private: false,
+    hidden: true,
+  },
+  {
+    id: useId,
+    element: (
+      <Suspense fallback={<Loading />}>
         <Nineth />
       </Suspense>
     ),
@@ -201,7 +214,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "푸쉬 알림 보내기",
-    path: "/푸쉬 알림 보내기",
+    path: "/푸쉬알림보내기",
     private: false,
     hidden: false,
   },

@@ -6,7 +6,7 @@ const Fifth = () => {
   return (
     <div>
       <Navbar select />
-      <Table count={8} param={"fifth"} />
+      <Table count={8} param={"맞춤형식이&운동"} />
     </div>
   );
 };

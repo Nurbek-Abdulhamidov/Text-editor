@@ -62,7 +62,7 @@ const Eighth = () => {
           bodySample={bodySample}
           data={data}
           type="탈퇴"
-          param={"eighth"}
+          param={"faq"}
         />
       </div>
     </div>

@@ -51,7 +51,7 @@ const Nineth = () => {
         header={header}
         bodySample={bodySample}
         count={8}
-        param="nineth"
+        param="회원관리"
         data={data}
       />
     </div>
