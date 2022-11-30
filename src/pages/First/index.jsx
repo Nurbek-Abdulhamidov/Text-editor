@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import Navbar from '../../components/Navbar';
-import Table from '../../components/Table';
-import axios from 'axios';
-import { useManagers } from '../../context/managers';
+import React, { useEffect, useState } from "react";
+import Navbar from "../../components/Navbar";
+import Table from "../../components/Table";
+import axios from "axios";
+import { useManagers } from "../../context/managers";
 
 const { REACT_APP_BASE_URL: url } = process.env;
-let token = localStorage.getItem('token');
+let token = localStorage.getItem("token");
 
 const Home = () => {
-  const [loading, setLoading] = useState(false);
+  const [ setLoading] = useState(false);
+ 
   const [{ data, key, size, page }, dispatch] = useManagers();
-  console.log(size, 'size');
+
   const getClick = async () => {
     const body = {
       search_scope: 'all',
@@ -23,7 +24,7 @@ const Home = () => {
           Authentication: token,
         },
       });
-      dispatch({ type: 'setData', payload: data?.data });
+      dispatch({ type: "setData", payload: data?.data });
       // setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -35,28 +36,29 @@ const Home = () => {
   }, [key, size, page]);
 
   let bodySample = [
-    'manager_id',
-    'manager_type',
-    'managerId',
-    'manager_phone_number',
-    'manager_status',
+    "manager_id",
+    "manager_type",
+    "managerId",
+    "manager_phone_number",
+    "manager_status",
   ];
 
-  let header = ['번호', '등급', '관리자 ID', '연락처', '가입일', '관리'];
+  let header = ["번호", "등급", "관리자 ID", "연락처", "가입일", "관리"];
   return (
     <div>
       <div>
+ 
         <Navbar type='manager' dispatch={dispatch} />
       </div>
       <div>
         <Table
           header={header}
-          count={8}
+          count={9}
           bodySample={bodySample}
           data={data}
-          type='탈퇴'
-          param='first'
-          ok='등록하기'
+          type="탈퇴"
+          param="manager-management"
+          ok="등록하기"
           removeBtn={true}
           confirm
           dispatch={dispatch}

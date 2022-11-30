@@ -58,10 +58,11 @@ const Second = () => {
         <Table
           // count={8}
           header={header}
-          param='second'
-          data={data}
+          count={8}
           bodySample={bodySample}
+          data={data}
           type='작성 상태'
+          param='consultation'
           size={size}
           page={page}
           dispatch={dispatch}

@@ -51,7 +51,6 @@ const Eighth = () => {
     "등록일",
     "상세 정보",
   ];
-  console.log(data);
   return (
     <div>
       <Navbar select />
@@ -62,7 +61,7 @@ const Eighth = () => {
           bodySample={bodySample}
           data={data}
           type="탈퇴"
-          param={"eighth"}
+          param={"faq"}
         />
       </div>
     </div>

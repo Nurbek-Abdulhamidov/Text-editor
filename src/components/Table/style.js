@@ -54,7 +54,7 @@ export const PaginationWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed;
+  /* position: fixed; */
   bottom: 20px;
   width: 100%;
   ul {

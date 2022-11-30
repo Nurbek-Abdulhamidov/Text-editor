@@ -1,11 +1,11 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import Navbar from '../../components/Navbar';
-import Table from '../../components/Table';
-import { useMember } from '../../context/member';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import Navbar from "../../components/Navbar";
+import Table from "../../components/Table";
+import { useMember } from "../../context/member";
 
 const { REACT_APP_BASE_URL: url } = process.env;
-let token = localStorage.getItem('token');
+let token = localStorage.getItem("token");
 
 const Nineth = () => {
   const [loading, setLoading] = useState(false);
@@ -24,7 +24,7 @@ const Nineth = () => {
           Authentication: token,
         },
       });
-      dispatch({ type: 'setData', payload: data?.data });
+      dispatch({ type: "setData", payload: data?.data });
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -36,20 +36,20 @@ const Nineth = () => {
   }, [page, size, key]);
 
   let bodySample = [
-    'member_phone_number',
-    'member_name',
-    'member_email',
-    'member_gender',
-    'member_birthdate',
+    "member_phone_number",
+    "member_name",
+    "member_email",
+    "member_gender",
+    "member_birthdate",
   ];
-  let header = ['번호', '이름', '이메일', '성별', '생년월일', '상세 정보'];
+  let header = ["번호", "이름", "이메일", "성별", "생년월일", "상세 정보"];
   return (
     <div>
       <Navbar select dispatch={dispatch} />
       <Table
         header={header}
         bodySample={bodySample}
-        param='nineth'
+        param="member-management"
         data={data}
         dispatch={dispatch}
         size={size}
