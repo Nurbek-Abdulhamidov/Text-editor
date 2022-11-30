@@ -7,7 +7,7 @@ const { REACT_APP_BASE_URL: url } = process.env;
 let token = localStorage.getItem("token");
 
 const Eighth = () => {
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
   const [data, setData] = useState([]);
 
   // get data from managers

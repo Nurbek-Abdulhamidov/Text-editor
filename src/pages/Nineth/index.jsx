@@ -8,7 +8,7 @@ const { REACT_APP_BASE_URL: url } = process.env;
 let token = localStorage.getItem("token");
 
 const Nineth = () => {
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
   const [{ data, page, size, key }, dispatch] = useMember();
   // get data from managers
   const getClick = async () => {

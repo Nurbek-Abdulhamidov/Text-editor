@@ -53,7 +53,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "Secondpage ",
-    path: "/consultation:id",
+    path: "/consultation/:id",
     private: false,
     hidden: true,
   },
@@ -223,6 +223,6 @@ export const navbar = [
     element: <Login />,
     path: "/login",
     private: false,
-    hide: false,
+    hide: true,
   },
 ];
