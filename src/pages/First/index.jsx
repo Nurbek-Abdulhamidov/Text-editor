@@ -56,6 +56,8 @@ const Home = () => {
           data={data}
           type='탈퇴'
           param='first'
+          ok='등록하기'
+          removeBtn={true}
           confirm
           dispatch={dispatch}
           size={size}

@@ -28,7 +28,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "관리자 관리",
-    path: "/home",
+    path: "/관리자 관리",
     private: false,
     hidden: false,
   },
@@ -40,7 +40,7 @@ export const navbar = [
       </Suspense>
     ),
     title: " 국가 건강검진 상담 ",
-    path: "/second",
+    path: "/국가 건강검진 상담",
     private: false,
     hidden: false,
   },
@@ -64,7 +64,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "종합 건강검진 상담 ",
-    path: "/third",
+    path: "/종합 건강검진 상담",
     private: false,
     hidden: false,
   },
@@ -88,7 +88,7 @@ export const navbar = [
       </Suspense>
     ),
     title: " 맞춤형 상담 ",
-    path: "/fourth",
+    path: "/맞춤형 상담",
     private: false,
     hidden: false,
   },
@@ -112,11 +112,11 @@ export const navbar = [
       </Suspense>
     ),
     title: "맞춤형 식이&운동 ",
-    path: "/fifth",
+    path: "/맞춤형 식이&운동",
     private: false,
     hidden: false,
   },
-  
+
   {
     id: useId,
     element: (
@@ -141,7 +141,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "공지사항",
-    path: "/seventh",
+    path: "/공지사항",
     private: false,
     hidden: false,
   },
@@ -165,7 +165,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "FAQ",
-    path: "/eighth",
+    path: "/faq",
     private: false,
     hidden: false,
   },
@@ -177,7 +177,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "회원관리",
-    path: "/nineth",
+    path: "/회원관리",
     private: false,
     hidden: false,
   },
@@ -201,7 +201,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "푸쉬 알림 보내기",
-    path: "/tenth",
+    path: "/푸쉬 알림 보내기",
     private: false,
     hidden: false,
   },

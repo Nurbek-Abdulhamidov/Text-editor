@@ -24,9 +24,9 @@ const Table = ({
   header,
   bodySample,
   type,
-  size,
-  page,
   dispatch,
+  page,
+  size,
 }) => {
   // const [{ data, size, page }, dispatch] = useConsulation();
 
