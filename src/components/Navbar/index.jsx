@@ -1,6 +1,5 @@
 import React from "react";
 import { Flex, Hambureger, Left, Nav, Right } from "./style";
-import { GiHamburgerMenu } from "react-icons/gi";
 import Selection from "../Generic/Select";
 import LocalizedModal from "../Generic/Modal";
 import Button from "../Generic/Button";
@@ -14,11 +13,6 @@ const Navbar = ({ select, send }) => {
           ""
         ) : (
           <Flex>
-            <Hambureger>
-              <i>
-                <GiHamburgerMenu />
-              </i>
-            </Hambureger>
             <p>환영합니다. 000님 관리자 등급 :총관리자</p>
           </Flex>
         )}

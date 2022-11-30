@@ -28,7 +28,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "관리자 관리",
-    path: "/관리자 관리",
+    path: "/관리자관리",
     private: false,
     hidden: false,
   },
@@ -40,7 +40,7 @@ export const navbar = [
       </Suspense>
     ),
     title: " 국가 건강검진 상담 ",
-    path: "/국가 건강검진 상담",
+    path: "/국가건강검진상담",
     private: false,
     hidden: false,
   },
@@ -51,8 +51,8 @@ export const navbar = [
         <SecondPage />
       </Suspense>
     ),
-    title: " Secondpage ",
-    path: "/second:id",
+    title: "Secondpage ",
+    path: "/국가건강검진상담:id",
     private: false,
     hidden: true,
   },
@@ -76,7 +76,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "종합 건강검진 상담 ",
-    path: "/third:id",
+    path: "/종합건강검진상담:id",
     private: false,
     hidden: true,
   },
@@ -88,7 +88,7 @@ export const navbar = [
       </Suspense>
     ),
     title: " 맞춤형 상담 ",
-    path: "/맞춤형 상담",
+    path: "/맞춤형상담",
     private: false,
     hidden: false,
   },
@@ -100,7 +100,7 @@ export const navbar = [
       </Suspense>
     ),
     title: " 맞춤형 상담 ",
-    path: "/fourth:id",
+    path: "/맞춤형상담 :id",
     private: false,
     hidden: true,
   },
@@ -112,7 +112,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "맞춤형 식이&운동 ",
-    path: "/맞춤형 식이&운동",
+    path: "/맞춤형식이&운동",
     private: false,
     hidden: false,
   },
@@ -125,7 +125,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "맞춤형 식이&운동 ",
-    path: "/fifth:id",
+    path: "/맞춤형식이&운동:id",
     private: false,
     hidden: true,
   },
@@ -153,7 +153,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "Seventhpage",
-    path: "/seventh:id",
+    path: "/공지사항:id",
     private: false,
     hidden: true,
   },
@@ -189,7 +189,7 @@ export const navbar = [
       </Suspense>
     ),
     title: "회원관리",
-    path: "/nineth:id",
+    path: "/회원관리:id",
     private: false,
     hidden: true,
   },

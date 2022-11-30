@@ -1,10 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-  /* display: flex;
-  justify-content: center; */
-`;
+export const Wrapper = styled.div``;
 
 export const Container = styled.div`
   display: flex;
@@ -22,10 +19,6 @@ export const Aside = styled.aside`
   flex: 1;
   padding: 10px;
   height: 100vh;
-
-  @media (max-width: 1220px) {
-    display: none;
-  }
 `;
 
 export const Section = styled.section`
@@ -72,6 +65,7 @@ export const BtnWrap = styled.div`
   width: 90%;
   background-color: #0061df;
   border-radius: 5px;
+
   div {
     border-radius: 5px;
     width: 100%;
