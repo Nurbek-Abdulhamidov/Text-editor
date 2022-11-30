@@ -8,10 +8,10 @@ const { REACT_APP_BASE_URL: url } = process.env;
 let token = localStorage.getItem("token");
 
 const Home = () => {
-  const [loading, setLoading] = useState(false);
+  const [ setLoading] = useState(false);
  
   const [{ data, key, size, page }, dispatch] = useManagers();
-  console.log(size, 'size');
+
   const getClick = async () => {
     const body = {
       search_scope: 'all',
