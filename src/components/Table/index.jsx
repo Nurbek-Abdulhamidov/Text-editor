@@ -97,9 +97,9 @@ const Table = ({
       </TableDiv>
       <PaginationWrap>
         <Pagination
-          defaultCurrent={page}
-          current={page}
-          total={data.total}
+          defaultCurrent={page || 1}
+          current={page || 1}
+          total={data?.total || 10}
           defaultPageSize={size}
           showSizeChanger
           onShowSizeChange={onShowSizeChange}
